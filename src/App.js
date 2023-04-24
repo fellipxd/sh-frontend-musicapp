@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import LibraryLayout from "./layouts/LibraryLayout";
+import Songs from "./pages/Library/Songs";
+import NowPlaying from "./pages/Library/NowPlaying";
+import Playlist from "./pages/Playlist";
+import Categories from "./pages/Categories";
+import Profile from "./pages/Profile";
+import Landing from "./pages/Landing";
+import AppProvider from "./state/provider";
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route index element={<Landing />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="root" element={<RootLayout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="library" element={<LibraryLayout />}>
+            <Route path="songs" element={<Songs />} />
+            <Route path="playing" element={<NowPlaying />} />
+          </Route>
+          <Route path="playlist" element={<Playlist />} />
+          <Route path="categories" element={<Categories />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+      </Route>
+    )
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   );
 }
 
