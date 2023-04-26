@@ -5,6 +5,7 @@ import {
   Route,
   createRoutesFromElements,
 } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 import RootLayout from "./layouts/RootLayout";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -23,6 +24,7 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route index element={<Landing />} />
+        <Route path="sidebar" element={<Sidebar />} />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="root" element={<RootLayout />}>

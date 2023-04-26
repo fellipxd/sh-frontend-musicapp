@@ -1,0 +1,42 @@
+.sidebar{
+    color: yellow;
+}
+.tom-image{
+    margin-top: 32px;
+    text-align: center;
+}
+.Tom-image{
+    text-align: center;
+}
+.tom-link{
+    margin-top: 41px;
+    border-left: 8px solid black;
+}
+.link{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+}
+img{
+    margin-left: 22px;
+}
+span{
+    margin-bottom: 7px;
+    margin-left: 22px;
+}
+.tom-link-2{
+    margin-top:27px ;
+}
+.t-2{
+    width: 20px;
+    height: 20px;
+    margin-left: 28px;
+}
+.tom-link-3{
+    margin-top:27px ;
+}
+.tom-link-4{
+    margin-top:54px ;
+}
+

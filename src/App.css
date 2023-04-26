@@ -7,3 +7,22 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+/*sidebar start*/
+.sidebar{
+  background-color:#660099;
+  color: yellow;
+  width: 263px;
+  height: 905px;
+}
+.Tom-images{
+  background-color: red;
+}
+.tom-images{
+  width: 88px;
+  height: 88px;
+  margin-top: 32px;
+}
+li{
+  color: white;
+}
+/*sidebar end*/
