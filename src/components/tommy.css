@@ -18,6 +18,9 @@
     font-size: 18px;
     color: white;
 }
+.link:active{
+    color: black;
+}
 img{
     margin-left: 22px;
 }

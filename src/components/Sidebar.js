@@ -13,13 +13,12 @@ import img8 from './images/bytesize_settings.svg'
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <aside>
       <div className="Tom-image">
         <img src={logo} className="tom-image" alt=""/>
       </div>
      <div className="tom-link">
      <li className="link">
-      <Link className="link"><img src={img1} className="t-i" alt=""/><span>Home</span></Link>
+      <Link to="home" className="link"><img src={img1} className="t-i" alt=""/><span>Home</span></Link>
       </li>
      </div>  
      <div className="tom-link-2">
@@ -57,8 +56,6 @@ const Sidebar = () => {
       <Link className="link"><img src={img8} className="t-i" alt=""/><span>Setting</span></Link>
       </li>
      </div>
-
-      </aside>   
     </div>
   )
 }
