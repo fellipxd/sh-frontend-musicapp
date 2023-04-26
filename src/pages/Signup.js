@@ -41,7 +41,7 @@ const Signup = () => {
         </button>
         <span className="s-span-2">
           Have an account?
-          <Link href="signup">Log in</Link>
+          <Link href="login">Log in</Link>
         </span>
       </div>
     </div>
