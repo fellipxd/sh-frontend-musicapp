@@ -18,42 +18,42 @@ const Sidebar = () => {
       </div>
      <div className="tom-link">
      <li className="link">
-      <Link className="link"><BiHomeAlt2 className="icon"/><span>Home</span></Link>
+      <Link className="link"><BiHomeAlt2 className="tom-icon"/><span>Home</span></Link>
       </li>
      </div>  
      <div className="tom-link-2">
      <li className="link">
-      <Link className="link"><SiApplemusic className="icon"/><span>Library</span></Link>
+      <Link className="link"><SiApplemusic className="tom-icon"/><span>Library</span></Link>
       </li>
      </div> 
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><RiPlayListFill className="icon"/><span>Playlist</span></Link>
+      <Link className="link"><RiPlayListFill className="tom-icon"/><span>Playlist</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><MdPlaylistPlay className="icon"/><span>Create Playlist</span></Link>
+      <Link className="link"><MdPlaylistPlay className="tom-icon"/><span>Create Playlist</span></Link>
       </li>
      </div>
      <div className="tom-link-4">
      <li className="link">
-      <Link className="link"><CgPlayListSearch className="icon"/><span>Browse Categories</span></Link>
+      <Link className="link"><CgPlayListSearch className="tom-icon"/><span>Browse Categories</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><AiOutlineHeart className="icon"/><span>Favorite Songs</span></Link>
+      <Link className="link"><AiOutlineHeart className="tom-icon"/><span>Favorite Songs</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><CgProfile className="icon"/><span>User Profile</span></Link>
+      <Link className="link"><CgProfile className="tom-icon"/><span>User Profile</span></Link>
       </li>
      </div>
      <div className="tom-link-4">
      <li className="link">
-      <Link className="link"><AiOutlineSetting className="icon"/><span>Setting</span></Link>
+      <Link className="link"><AiOutlineSetting className="tom-icon"/><span>Setting</span></Link>
       </li>
      </div>
     </div>
