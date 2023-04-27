@@ -18,7 +18,6 @@ import Profile from "./pages/Profile";
 import Landing from "./pages/Landing";
 import AppProvider from "./state/provider";
 import Library from "./pages/Library/Index";
-// import Library from "./pages/Library/Index";
 
 function App() {
   const router = createBrowserRouter(
@@ -29,7 +28,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="root" element={<RootLayout />}>
           <Route path="home" element={<Home />} />
-          <Route path="library" element={<Library />} />
+          <Route path="library" element={<LibraryLayout />} />
           {/* <Route path="library" element={<LibraryLayout />}>
             <Route path="songs" element={<Songs />} />
             <Route path="playing" element={<NowPlaying />} />
