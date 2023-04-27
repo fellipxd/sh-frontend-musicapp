@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 import "./tommy.css"
+import { BiHomeAlt2 } from "react-icons/bi";
+import { SiApplemusic } from "react-icons/si";
+import { RiPlayListFill } from "react-icons/ri";
+import { MdPlaylistPlay } from "react-icons/md";
+import { CgPlayListSearch } from "react-icons/cg";
+import { AiOutlineHeart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineSetting } from "react-icons/ai";
 import logo from './images/m-logo.png'
-import img1 from './images/Vector.svg'
-import img2 from './images/Group.svg'
-import img3 from './images/bxs_playlist.svg'
-import img4 from './images/carbon_playlist.svg'
-import img5 from './images/icon-park-outline_find.svg'
-import img6 from './images/ic_baseline-favorite-border.svg'
-import img7 from './images/bx_user-circle.svg'
-import img8 from './images/bytesize_settings.svg'
 
 const Sidebar = () => {
   return (
@@ -18,42 +18,42 @@ const Sidebar = () => {
       </div>
      <div className="tom-link">
      <li className="link">
-      <Link to="home" className="link"><img src={img1} className="t-i" alt=""/><span>Home</span></Link>
+      <Link className="link"><BiHomeAlt2 className="icon"/><span>Home</span></Link>
       </li>
      </div>  
      <div className="tom-link-2">
      <li className="link">
-      <Link className="link"><img src={img2} className="t-2" alt=""/><span>Library</span></Link>
+      <Link className="link"><SiApplemusic className="icon"/><span>Library</span></Link>
       </li>
      </div> 
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><img src={img3} className="t-i" alt=""/><span>Playlist</span></Link>
+      <Link className="link"><RiPlayListFill className="icon"/><span>Playlist</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><img src={img4} className="t-i" alt=""/><span>Create Playlist</span></Link>
+      <Link className="link"><MdPlaylistPlay className="icon"/><span>Create Playlist</span></Link>
       </li>
      </div>
      <div className="tom-link-4">
      <li className="link">
-      <Link className="link"><img src={img5} className="t-i" alt=""/><span>Browse Categories</span></Link>
+      <Link className="link"><CgPlayListSearch className="icon"/><span>Browse Categories</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><img src={img6} className="t-i" alt=""/><span>Favorite Songs</span></Link>
+      <Link className="link"><AiOutlineHeart className="icon"/><span>Favorite Songs</span></Link>
       </li>
      </div>
      <div className="tom-link-3">
      <li className="link">
-      <Link className="link"><img src={img7} className="t-i" alt=""/><span>User Profile</span></Link>
+      <Link className="link"><CgProfile className="icon"/><span>User Profile</span></Link>
       </li>
      </div>
      <div className="tom-link-4">
      <li className="link">
-      <Link className="link"><img src={img8} className="t-i" alt=""/><span>Setting</span></Link>
+      <Link className="link"><AiOutlineSetting className="icon"/><span>Setting</span></Link>
       </li>
      </div>
     </div>

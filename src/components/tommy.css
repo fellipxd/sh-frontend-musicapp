@@ -10,6 +10,9 @@
 }
 .tom-link{
     margin-top: 41px;
+    border-left: 8px solid transparent;
+}
+.tom-link:active{
     border-left: 8px solid black;
 }
 .link{
@@ -30,6 +33,10 @@ span{
 }
 .tom-link-2{
     margin-top:27px ;
+    border-left: 8px solid transparent;
+}
+.tom-link-2:active{
+    border-left: 8px solid black;
 }
 .t-2{
     width: 20px;
@@ -38,8 +45,20 @@ span{
 }
 .tom-link-3{
     margin-top:27px ;
+    border-left: 8px solid transparent;
+}
+.tom-link-3:active{
+    border-left: 8px solid black;
 }
 .tom-link-4{
     margin-top:54px ;
+    border-left: 8px solid transparent;
 }
-
+.tom-link-4:active{
+    border-left: 8px solid black;
+}
+.icon{
+    width: 20px;
+    height: 20px;
+    margin-left: 22px;
+}
