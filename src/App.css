@@ -238,7 +238,6 @@ a {
   font-size: 0.8rem;
 }
 
-<<<<<<< HEAD
 .s-signup .labelContainer {
   display: flex;
   gap: 1rem;
@@ -260,12 +259,8 @@ a {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
-=======
-body {
   font-family: 'Rubik', sans-serif;
   overflow: hidden;
->>>>>>> c7209f49e85590ee8cd49a5c09cc525bbf9d02a1
 }
 #container {
   height: 100vh;
@@ -401,8 +396,6 @@ body {
 .left button:hover {
   opacity: 100%;
 }
-<<<<<<< HEAD
-=======
 
 .dashboard-container {
   display: flex;
@@ -528,4 +521,3 @@ body {
   height: 91%;
   color: #fff;
 }
->>>>>>> c7209f49e85590ee8cd49a5c09cc525bbf9d02a1
