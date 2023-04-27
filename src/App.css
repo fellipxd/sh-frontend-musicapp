@@ -8,9 +8,13 @@ a {
   font-size: 16px;
 }
 
-
-
 .s-container {
+  background-image: linear-gradient(
+    180deg,
+    #0e0015 19.43%,
+    #310248 47.66%,
+    #0e0015 77.25%
+  );
 }
 
 .s-signin {
@@ -71,7 +75,7 @@ a {
 }
 
 .s-purple {
-  color: purple;
+  color: #6700b0;
 }
 
 .s-signin .s-btn {
@@ -80,7 +84,7 @@ a {
   padding: 0.7rem;
   color: #fff;
   background: transparent;
-  border: 1px solid purple;
+  border: 1px solid #6700b0;
   margin-top: 2rem;
   border-radius: 5px;
   font-size: 1rem;
@@ -92,14 +96,14 @@ a {
   padding: 0.7rem;
   color: #fff;
   background: transparent;
-  border: 1px solid purple;
+  border: 1px solid #6700b0;
   margin-top: 1rem;
   border-radius: 5px;
   font-size: 1rem;
 }
 
 .s-signin .s-btn-1 {
-  background-color: purple;
+  background-color: #6700b0;
 }
 
 .s-signin .s-btn-2 {
@@ -110,7 +114,7 @@ a {
 }
 
 .s-signup .s-btn-1 {
-  background-color: purple;
+  background-color: #6700b0;
 }
 
 .s-signup .s-btn-2 {
@@ -132,7 +136,7 @@ a {
   position: absolute;
   width: 45%;
   height: 1px;
-  background-color: purple;
+  background-color: #6700b0;
   top: 50%;
   right: 0;
 }
@@ -142,7 +146,7 @@ a {
   position: absolute;
   width: 45%;
   height: 1px;
-  background-color: purple;
+  background-color: #6700b0;
   top: 50%;
   left: 0;
 }
@@ -174,6 +178,41 @@ a {
   left: -15px;
 }
 
+.s-input-2 {
+  padding: 0.7rem;
+  background-color: transparent;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+  width: 4rem;
+}
+
+.s-input-3 {
+  padding: 0.7rem;
+  background-color: transparent;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+  width: 5rem;
+}
+
+.s-input-4 {
+  padding: 0.7rem;
+  background-color: transparent;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+  width: 4rem;
+}
+
+.s-signup .s-flex {
+  display: flex;
+  gap: 1rem;
+}
+
 .s-span-2 {
   display: block;
   width: 100%;
@@ -185,17 +224,42 @@ a {
   translate: -50%;
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 .s-center {
   text-align: center;
 }
 
-.s-signup p, .s-signin p {
+.s-signup p,
+.s-signin p {
   margin: 0.5rem 0;
   font-size: 0.8rem;
 }
 
-body{
-  font-family: 'Rubik', sans-serif;
+.s-signup .labelContainer {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.s-signup .labelContainer div {
+  display: flex;
+  align-items: center;
+}
+
+.s-signup input[type="radio"] {
+  accent-color: #333;
+}
+
+.s-signup label {
+  margin-left: 5px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
 }
 #container {
   height: 100vh;
@@ -292,7 +356,7 @@ body{
   justify-content: center;
 }
 .left h1 {
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
   font-size: 65px;
@@ -304,7 +368,7 @@ body{
   width: 539px;
   height: 90px;
   margin-top: 24px;
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -319,7 +383,7 @@ body{
   gap: 8px;
   width: 333px;
   height: 64px;
-  background: #660099;
+  background: #6700b0;
   border-radius: 5px;
   margin-top: 32px;
   color: #fff;
@@ -331,4 +395,3 @@ body{
 .left button:hover {
   opacity: 100%;
 }
-

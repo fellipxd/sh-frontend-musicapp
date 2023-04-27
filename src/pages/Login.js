@@ -13,7 +13,7 @@ const Login = () => {
         </div>
         <p className="s-p s-purple">Forgot Password?</p>
         <button className="s-btn s-btn-1" type="button">
-          LOGIN
+          <Link to="/root">LOGIN</Link>
         </button>
         <span className="s-span-1">or</span>
         <button className="s-btn s-btn-2" type="button">
@@ -23,7 +23,7 @@ const Login = () => {
         <p>
           <span className="s-span-2">
             Don't have an account?
-            <Link href="signup">Sign up</Link>
+            <Link to="/signup">Sign up</Link>
           </span>
         </p>
       </div>
