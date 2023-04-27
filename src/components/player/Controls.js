@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useContext } from 'react';
 
 // icons
 import {
@@ -15,6 +15,7 @@ import {
   IoMdVolumeOff,
   IoMdVolumeLow,
 } from 'react-icons/io';
+import AppContext from '../../state/context';
 
 const Controls = ({
   audioRef,
@@ -27,11 +28,14 @@ const Controls = ({
   setTrackIndex,
   setCurrentTrack,
   handleNext,
+
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(60);
   const [muteVolume, setMuteVolume] = useState(false);
-
+  const {
+    isPlaying,
+    setIsPlaying
+  } = useContext(AppContext);
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
   };
@@ -39,12 +43,12 @@ const Controls = ({
   const playAnimationRef = useRef();
 
   const repeat = useCallback(() => {
-    const currentTime = audioRef.current.currentTime;
+    const currentTime = audioRef.current?.currentTime;
     setTimeProgress(currentTime);
     progressBarRef.current.value = currentTime;
     progressBarRef.current.style.setProperty(
       '--range-progress',
-      `${(progressBarRef.current.value / duration) * 100}%`
+      `${(progressBarRef.current?.value / duration) * 100}%`
     );
 
     playAnimationRef.current = requestAnimationFrame(repeat);

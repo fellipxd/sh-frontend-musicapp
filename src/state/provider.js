@@ -8,6 +8,7 @@ const AppProvider = (props) => {
   const [currentTrack, setCurrentTrack] = useState(
     tracks[trackIndex]
   );
+  const [isPlaying, setIsPlaying] = useState(false);
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
@@ -41,6 +42,8 @@ const AppProvider = (props) => {
       setTrackIndex,
       setCurrentTrack,
       timeProgress,
+      isPlaying,
+      setIsPlaying
     }}
   >{props.children}
   </AppContext.Provider>;

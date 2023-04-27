@@ -9,9 +9,6 @@ import RootLayout from "./layouts/RootLayout";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import LibraryLayout from "./layouts/LibraryLayout";
-import Songs from "./pages/Library/Songs";
-import NowPlaying from "./pages/Library/NowPlaying";
 import Playlist from "./pages/Playlist";
 import Categories from "./pages/Categories";
 import Profile from "./pages/Profile";
@@ -28,11 +25,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="root" element={<RootLayout />}>
           <Route path="home" element={<Home />} />
-          <Route path="library" element={<LibraryLayout />} />
-          {/* <Route path="library" element={<LibraryLayout />}>
-            <Route path="songs" element={<Songs />} />
-            <Route path="playing" element={<NowPlaying />} />
-          </Route> */}
+          <Route path="library" element={<Library />} />
           <Route path="playlist" element={<Playlist />} />
           <Route path="categories" element={<Categories />} />
           <Route path="profile" element={<Profile />} />
