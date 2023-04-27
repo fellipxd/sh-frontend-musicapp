@@ -1,6 +1,6 @@
 const Songs = () => {
   return (
-    <div>Songs</div>
+    <div className="page-wrapper">Songs</div>
   )
 }
 
