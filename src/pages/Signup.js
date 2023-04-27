@@ -1,6 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
+import { Button } from "../components/ButtonElement";
 
 const Signup = () => {
   return (
@@ -18,27 +19,49 @@ const Signup = () => {
           <Input type="password" placeholder="Confirm Password " />
           <Input type="text" placeholder="Enter Profile Name " />
         </div>
-        <div>
+        <div className="mt-1">
           <p>What is your date of birth</p>
-          <div>
-            <Input type="month" />
-          </div>
+          <span className="s-flex">
+            <input type="text" placeholder="Day" className="s-input-2" />
+            <input type="text" placeholder="Month" className="s-input-3" />
+            <input type="text" placeholder="Year" className="s-input-4" />
+          </span>
         </div>
-        <div>
+        <div className="mt-1">
           <p>Gender</p>
-          <div>
-            <input type="radio" name="gender" value="Male" />
-            <input type="radio" name="gender" value="Female" />
-            <input type="radio" name="gender" value="Prefer not to say" />
+          <div className="labelContainer">
+            <div>
+              <Input type="radio" id="male" name="gender" value="Male" />
+              <label htmlFor="male">Male</label>
+            </div>
+            <div>
+              <Input type="radio" id="female" name="gender" value="Female" />
+              <label htmlFor="female">Female</label>
+            </div>
+            <div>
+              <Input
+                type="radio"
+                id="others"
+                name="gender"
+                value="Prefer not to say"
+              />
+              <label htmlFor="others">Prefer not to say</label>
+            </div>
           </div>
         </div>
         <p className="s-center">
           By clicking on sign-up you agree fully to the terms and conditions and
           privacy policy
         </p>
-        <button className="s-btn s-btn-1" type="button">
-          SIGN UP
-        </button>
+        <Button
+          primary="true"
+          light="true"
+          fontBig="true"
+          big="true"
+          widthBig="true"
+        >
+          <Link to="/root">SIGN UP</Link>
+        </Button>
         <span className="s-span-2">
           Have an account?
           <Link to="/login">Log in</Link>

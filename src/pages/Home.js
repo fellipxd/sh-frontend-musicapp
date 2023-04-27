@@ -1,6 +1,10 @@
+import Card from "../components/cards/Index"
+
 const Home = () => {
   return (
-    <div id="home" className="page-wrapper">Home</div>
+    <div id="home" className="page-wrapper">
+      <Card />
+    </div>
   )
 }
 
