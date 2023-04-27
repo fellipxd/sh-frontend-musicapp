@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import NowPlaying from '../Library/NowPlaying'
+import './playerStyles.css'
+import Album from './album';
+import Songs from './Songs';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -57,10 +60,10 @@ export default function Library() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          Item One
+          <Songs />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <Album />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <NowPlaying />
