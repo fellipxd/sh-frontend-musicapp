@@ -1,11 +1,11 @@
-import { CardContainer, CardImage, CardHeader, CardBody } from "./CardElements";
+import { CardContainer, CardImage, CardBody } from "./CardElements";
 
-const Card = ({ img, alt, headerText, spanText }) => {
+const Card = ({ img, alt, spanText, spanText2 }) => {
   return (
     <CardContainer>
       <CardImage src={img} alt={alt} />
-      <CardHeader>{headerText}</CardHeader>
       <CardBody>{spanText}</CardBody>
+      <CardBody>{spanText2}</CardBody>
     </CardContainer>
   );
 };

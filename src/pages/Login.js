@@ -13,9 +13,6 @@ const Login = () => {
           <Input type="password" placeholder="Password " />
         </div>
         <p className="s-p s-purple">Forgot Password?</p>
-        {/* <button className="s-btn s-btn-1" type="button">
-          <Link to="/root">LOGIN</Link>
-        </button> */}
         <Button
           primary="true"
           light="true"
