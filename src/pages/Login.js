@@ -23,7 +23,7 @@ const Login = () => {
         <p>
           <span className="s-span-2">
             Don't have an account?
-            <Link href="signup">Sign up</Link>
+            <Link to="/signup">Sign up</Link>
           </span>
         </p>
       </div>
