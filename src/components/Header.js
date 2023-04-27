@@ -1,3 +1,5 @@
+import { ReactComponent as NotificationIcon } from './icons/notification.svg';
+
 const Header = () => {
   return (
     <div className="header">
@@ -9,7 +11,12 @@ const Header = () => {
         <input type="text" placeholder="Artists, Songs, Lyrics and more" />
       </div>
       <div className="profile">
-
+        <div >
+          <NotificationIcon />
+        </div>
+        <div className='profile-ellipse'>
+          <img src='/images/profile.png' alt='profile img' />
+        </div>
       </div>
     </div>
   )
