@@ -215,12 +215,12 @@ body {
 }
 .bottomright {
   position: absolute;
-  top: 40%;
+  top: 50%;
   right: 0;
 }
 .bottomleft {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 0;
 }
 .landing-header {
@@ -440,4 +440,18 @@ body {
   color: #fff;
   background: transparent;
   border: none;
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile-ellipse {
+  width: 40px;
+  height: 40px;
+  margin-left: 45.25px;
+}
+
+.page-wrapper {
+  border: 2px solid white;
+  height: 91%;
 }

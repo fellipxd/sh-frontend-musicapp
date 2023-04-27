@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import { Outlet } from 'react-router';
 
 
 function RootLayout() {
@@ -18,7 +19,7 @@ function RootLayout() {
         <img src='/images/bottomright.png' alt='right' className="bottomright" />
         <img src='/images/bottomleft.png' alt='left' className="bottomleft" />
         <Header />
-        {/* Main content goes here */}
+        <Outlet />
       </div>
     </div>
   );
