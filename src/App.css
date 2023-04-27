@@ -450,3 +450,8 @@ body {
   height: 40px;
   margin-left: 45.25px;
 }
+
+.page-wrapper {
+  border: 2px solid white;
+  height: 91%;
+}
