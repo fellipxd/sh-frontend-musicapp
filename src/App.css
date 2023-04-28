@@ -743,5 +743,6 @@ body {
   flex-wrap: wrap;
   gap: 30px 64px;
   height: 88%;
+  margin-top: 18px;
   overflow-y: scroll;
 }
