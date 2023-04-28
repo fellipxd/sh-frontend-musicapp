@@ -5,7 +5,9 @@ import "react-h5-audio-player/lib/styles.css";
 import { tracks } from "../../data/tracks";
 import AppContext from "../../state/context";
 import { IoMdPlay, IoMdPause } from "react-icons/io"
-export default function MusicPlayer() {
+
+
+export default function MusicPlayer(show) {
   const {
     trackIndex,
     setTrackIndex
@@ -30,7 +32,7 @@ export default function MusicPlayer() {
 
 
   return (
-    <div className="controler">
+    <div className="controler" >
       <AudioPlayer
         style={{ boxShadow: "none", color: "white", background: "transparent", }}
         src={tracks[trackIndex].src}

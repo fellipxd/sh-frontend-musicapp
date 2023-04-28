@@ -283,6 +283,7 @@ body {
   position: absolute;
   top: 50%;
   right: 0;
+  z-index: 0;
 }
 .bottomleft {
   position: absolute;
@@ -534,7 +535,6 @@ body {
   margin-left: 70px;
   /* right: 14%; */
   width: 67vw;
-  /* border: 3px solid red; */
 }
 .library-wrapper {
   height: 628px;
@@ -575,6 +575,10 @@ body {
   border-radius: 8px;
   height: 100%;
   width: 100%;
+}
+.invisible-controler {
+  /* display: none; */
+  border: 2px solid red;
 }
 .rhap_container svg {
   color: #fff;
@@ -688,4 +692,56 @@ body {
   z-index: 2;
   background: red;
   border-radius: 8px;
+}
+.profile-wrapper {
+  height: 94%;
+  width: 96%;
+  margin: auto;
+  margin-top: 30px;
+  color: white;
+}
+.user-card {
+  display: flex;
+  height: 100px;
+}
+.user-card img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+.user-dets {
+  margin-left: 16px;
+}
+.user-count {
+  display: flex;
+  gap: 48px;
+  margin-top: 16px;
+}
+.count {
+  text-align: center;
+}
+.count p {
+  margin-bottom: 8px;
+}
+.count span {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #660099;
+}
+.recently-played {
+  margin-top: 35px;
+  height: 70%;
+}
+.recently-played h1 {
+  font-size: 24px;
+}
+.recently-played-artist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 64px;
+  height: 88%;
+  overflow-y: scroll;
 }
