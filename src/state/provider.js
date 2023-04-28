@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import AppContext from "./context";
 import { tracks } from "../data/tracks";
 
@@ -18,32 +18,15 @@ const AppProvider = (props) => {
   const [errMessage, setErrMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  // reference
-  const audioRef = useRef();
-  const progressBarRef = useRef();
-
-  const handleNext = () => {
-    if (trackIndex >= tracks.length - 1) {
-      setTrackIndex(0);
-      setCurrentTrack(tracks[0]);
-    } else {
-      setTrackIndex((prev) => prev + 1);
-      setCurrentTrack(tracks[trackIndex + 1]);
-    }
-  };
-
   return (
     <AppContext.Provider
       value={{
-        currentTrack,
-        audioRef,
-        setDuration,
-        progressBarRef,
-        handleNext,
-        duration,
-        setTimeProgress,
         trackIndex,
         setTrackIndex,
+        currentTrack,
+        setDuration,
+        duration,
+        setTimeProgress,
         setCurrentTrack,
         timeProgress,
         email,

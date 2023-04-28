@@ -283,6 +283,7 @@ body {
   position: absolute;
   top: 50%;
   right: 0;
+  z-index: 0;
 }
 .bottomleft {
   position: absolute;
@@ -299,6 +300,10 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+}
+.btn-wrapper {
+  display: flex;
+  margin-top: -25px;
 }
 .landing-logo {
   display: flex;
@@ -530,7 +535,6 @@ body {
   margin-left: 70px;
   /* right: 14%; */
   width: 67vw;
-  /* border: 3px solid red; */
 }
 .library-wrapper {
   height: 628px;
@@ -553,15 +557,28 @@ body {
   height: 100%;
   width: 100%;
 }
+.show-lyrics {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
 
 .rhap_controls-section {
   background: #660099;
   padding: 15px;
 }
-.library-img img {
+.library-img img,
+.show-lyrics img {
   border-radius: 8px;
   height: 100%;
   width: 100%;
+}
+.invisible-controler {
+  /* display: none; */
+  border: 2px solid red;
 }
 .rhap_container svg {
   color: #fff;
@@ -624,4 +641,121 @@ body {
   border: 1px solid #660099;
   border-radius: 4px;
   margin-left: 5%;
+  cursor: pointer;
 }
+
+.bg {
+  position: absolute;
+  background: grey;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+}
+.lyric-view {
+  height: 100%;
+  width: 100%;
+  padding: 21px 58px;
+  border: 1px solid #660099;
+  border-radius: 4px;
+}
+.albums {
+  position: relative;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  padding: 20px 70px;
+  display: flex;
+  gap: 65px;
+}
+.album-card {
+  position: relative;
+  width: 215px;
+  height: 138px;
+}
+
+.album-card-bg {
+  position: absolute;
+  width: 205px;
+  height: 128px;
+  left: -10px;
+  top: -10px;
+  background: #828282;
+  border-radius: 8px;
+}
+.album-card-fig {
+  position: absolute;
+  width: 205px;
+  height: 128px;
+  z-index: 2;
+  background: red;
+  border-radius: 8px;
+}
+.profile-wrapper {
+  height: 94%;
+  width: 96%;
+  margin: auto;
+  margin-top: 30px;
+  color: white;
+}
+.user-card {
+  display: flex;
+  height: 100px;
+}
+.user-card img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+.user-dets {
+  margin-left: 16px;
+}
+.user-count {
+  display: flex;
+  gap: 48px;
+  margin-top: 16px;
+}
+.count {
+  text-align: center;
+}
+.count p {
+  margin-bottom: 8px;
+}
+.count span {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #660099;
+}
+.recently-played {
+  margin-top: 35px;
+  height: 70%;
+}
+.recently-played h1 {
+  font-size: 24px;
+}
+.recently-played-artist {
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  gap: 30px 64px;
+  height: 490px;
+  margin-top: 18px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  display: none;
+}
+
+/* ::-webkit-scrollbar-thumb {
+  background-color: #6b6b6b;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+} */

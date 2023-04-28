@@ -6,13 +6,17 @@ export const CardContainer = styled.div`
   flex-direction: column;
   justify-content: start;
   gap: 1rem;
-  height: 12rem;
-  width: 12rem;
+  z-index: 2;
   border-radius: 5px;
+  height: 230px;
+width: 210px;
+
 `;
 
 export const CardImage = styled.img`
   width: 100%;
+  height: 143px;
+  border:2px solid white;
 `;
 
 export const CardHeader = styled.h2`

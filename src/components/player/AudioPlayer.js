@@ -4,12 +4,15 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { tracks } from "../../data/tracks";
 import AppContext from "../../state/context";
+import { IoMdPlay, IoMdPause } from "react-icons/io"
 
-export default function MusicPlayer() {
+
+export default function MusicPlayer(show) {
   const {
     trackIndex,
     setTrackIndex
   } = useContext(AppContext);
+
 
   const handleClickPrevious = () => {
     setTrackIndex((currentTrack) =>
@@ -22,10 +25,14 @@ export default function MusicPlayer() {
       currentTrack < tracks.length - 1 ? currentTrack + 1 : 0
     );
   };
+  const play = <IoMdPlay style={{ fill: "white" }} />
+  const pause = <IoMdPause style={{ fill: "white" }
+  } />
+
 
 
   return (
-    <div className="controler">
+    <div className="controler" >
       <AudioPlayer
         style={{ boxShadow: "none", color: "white", background: "transparent", }}
         src={tracks[trackIndex].src}
@@ -36,6 +43,7 @@ export default function MusicPlayer() {
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
         onEnded={handleClickNext}
+        customIcons={{ play: play, pause: pause }}
       />
     </div>
   );
