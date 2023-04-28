@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import { Outlet } from 'react-router';
+import MusicPlayer from '../components/player/AudioPlayer';
 
 
 function RootLayout() {
@@ -20,7 +21,9 @@ function RootLayout() {
         <img src='/images/bottomleft.png' alt='left' className="bottomleft" />
         <Header />
         <Outlet />
+        <MusicPlayer />
       </div>
+
     </div>
   );
 }

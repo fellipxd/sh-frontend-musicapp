@@ -1,54 +1,42 @@
-import { useContext } from 'react';
-import { tracks } from '../../data/tracks';
 
-// import components
-import DisplayTrack from './DisplayTrack';
-import Controls from './Controls';
-import ProgressBar from './ProgresBar';
-import AppContext from '../../state/context';
+import { useContext, useState } from "react";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
+import { tracks } from "../../data/tracks";
+import AppContext from "../../state/context";
 
-const AudioPlayer = ({ children }) => { // update parameter name to "children"
+export default function MusicPlayer() {
   const {
-    currentTrack,
-    audioRef,
-    setDuration,
-    progressBarRef,
-    handleNext,
-    duration,
-    setTimeProgress,
     trackIndex,
-    setTrackIndex,
-    setCurrentTrack,
-    timeProgress,
+    setTrackIndex
   } = useContext(AppContext);
 
+  const handleClickPrevious = () => {
+    setTrackIndex((currentTrack) =>
+      currentTrack === 0 ? tracks.length - 1 : currentTrack - 1
+    );
+  };
+
+  const handleClickNext = () => {
+    setTrackIndex((currentTrack) =>
+      currentTrack < tracks.length - 1 ? currentTrack + 1 : 0
+    );
+  };
+
+
   return (
-    <>
-      <div className="audio-player">
-        <div className="inner">
-          {children} {/* render the children components here */}
-
-          <Controls
-            {...{
-              audioRef,
-              progressBarRef,
-              duration,
-              setTimeProgress,
-              tracks,
-              trackIndex,
-              setTrackIndex,
-              setCurrentTrack,
-              handleNext,
-              timeProgress,
-            }}
-          />
-
-        </div>
-      </div>
-    </>
+    <div className="controler">
+      <AudioPlayer
+        style={{ boxShadow: "none", color: "white", background: "transparent", }}
+        src={tracks[trackIndex].src}
+        onPlay={(e) => console.log(tracks[trackIndex].title)}
+        showSkipControls={true}
+        showJumpControls={false}
+        header={`Now playing: ${tracks[trackIndex].title}`}
+        onClickPrevious={handleClickPrevious}
+        onClickNext={handleClickNext}
+        onEnded={handleClickNext}
+      />
+    </div>
   );
-};
-
-export default AudioPlayer;
-
-// NowPlaying component remains the same.
+}

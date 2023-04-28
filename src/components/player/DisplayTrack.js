@@ -1,44 +1,49 @@
-import { BsMusicNoteBeamed } from 'react-icons/bs';
+// import { useContext } from 'react';
+// import AppContext from '../../state/context';
+// import { tracks } from '../../data/tracks';
+// const DisplayTrack = () => {
+//   const {
+//     trackIndex
+//   } = useContext(AppContext);
+//   // const currentTrack = musicTracks[currentTrack];
+//   console.log("tracks", tracks[trackIndex])
+//   return (
+//     <div className="now-wrapper">
+//       {/* <h2>Now Playing:</h2> */}
+//       <div className='library-img'>
+//         <img src={tracks[trackIndex].thumbnail} alt="player" />
+//       </div>
+//       {/* 
+//       <h3>{tracks[trackIndex].title}</h3> */}
+//       {/* <h3>{tracks[trackIndex].author}</h3> */}
+//     </div>
+//   );
+// };
+// export default DisplayTrack;
+import { useContext } from 'react';
+import AppContext from '../../state/context';
+import { tracks } from '../../data/tracks';
+const defaultThumbnail = '/images/1.png'
 
-const DisplayTrack = ({
-  currentTrack,
-  audioRef,
-  setDuration,
-  progressBarRef,
-  handleNext,
-}) => {
-  const onLoadedMetadata = () => {
-    const seconds = audioRef.current.duration;
-    setDuration(seconds);
-    progressBarRef.current.max = seconds;
-  };
+const DisplayTrack = () => {
+  const { trackIndex } = useContext(AppContext);
+
+  console.log("tracks", defaultThumbnail);
+
+  const thumbnail = tracks[trackIndex]?.thumbnail || defaultThumbnail;
 
   return (
-    <div>
-      <audio
-        src={currentTrack.src}
-        ref={audioRef}
-        onLoadedMetadata={onLoadedMetadata}
-        onEnded={handleNext}
-      />
-      <div className="audio-info">
-        <div className="audio-image">
-          {currentTrack.thumbnail ? (
-            <img src={currentTrack.thumbnail} alt="audio avatar" />
-          ) : (
-            <div className="icon-wrapper">
-              <span className="audio-icon">
-                <BsMusicNoteBeamed />
-              </span>
-            </div>
-          )}
-        </div>
-        {/* <div className="text">
-          <p className="title">{currentTrack.title}</p>
-          <p>{currentTrack.author}</p>
-        </div> */}
+    <div className="now-wrapper">
+      <div className='library-img'>
+        <img src={thumbnail} alt="player" />
+      </div>
+      <div className='now-playing-who'>
+        <h3>{tracks[trackIndex].title} - {tracks[trackIndex].author}</h3>
       </div>
     </div>
+
+
   );
 };
+
 export default DisplayTrack;
