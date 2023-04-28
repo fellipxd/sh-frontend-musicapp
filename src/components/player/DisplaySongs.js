@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { tracks } from "../../data/tracks";
 import AppContext from "../../state/context";
 
