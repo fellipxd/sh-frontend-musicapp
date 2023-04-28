@@ -1,6 +1,10 @@
+import DisplaySongs from "../../components/player/DisplaySongs"
+
 const Songs = () => {
   return (
-    <div className="page-wrapper">Songs</div>
+    <div >
+      <DisplaySongs />
+    </div>
   )
 }
 

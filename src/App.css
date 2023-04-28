@@ -132,7 +132,7 @@ a {
 }
 
 .s-signin .s-span-1::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 45%;
   height: 1px;
@@ -142,7 +142,7 @@ a {
 }
 
 .s-signin .s-span-1::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 45%;
   height: 1px;
@@ -159,7 +159,7 @@ a {
 }
 
 .s-signup .s-span-1::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 45%;
   height: 1px;
@@ -169,7 +169,7 @@ a {
 }
 
 .s-signup .s-span-1::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 45%;
   height: 1px;
@@ -250,7 +250,7 @@ a {
   align-items: center;
 }
 
-.s-signup input[type="radio"] {
+.s-signup input[type='radio'] {
   accent-color: #333;
 }
 
@@ -259,7 +259,7 @@ a {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   max-height: 940px;
   /* overflow: hidden; */
 }
@@ -359,7 +359,7 @@ body {
   justify-content: center;
 }
 .left h1 {
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-style: normal;
   font-weight: 700;
   font-size: 65px;
@@ -371,7 +371,7 @@ body {
   width: 539px;
   height: 90px;
   margin-top: 24px;
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -469,7 +469,7 @@ body {
 }
 
 .active::before {
-  content: "|";
+  content: '|';
   display: inline-block;
   margin-right: 10px;
   position: absolute;
@@ -515,8 +515,113 @@ body {
 }
 
 .page-wrapper {
-  height: 91%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
   color: #fff;
   max-width: 90%;
   margin: auto;
+}
+.controler {
+  z-index: 40;
+  display: flex;
+  position: absolute;
+  top: 85%;
+  margin-left: 70px;
+  /* right: 14%; */
+  width: 67vw;
+  /* border: 3px solid red; */
+}
+.library-wrapper {
+  height: 628px;
+  border: 1px solid #660099;
+  position: relative;
+  border-radius: 8px;
+  padding: 24px 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.now-wrapper {
+  height: 628px;
+  position: relative;
+  border-radius: 8px;
+}
+.library-img {
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+
+.rhap_controls-section {
+  background: #660099;
+  padding: 15px;
+}
+.library-img img {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+.rhap_container svg {
+  color: #fff;
+}
+.rhap_volume-controls,
+.rhap_additional-controls {
+  flex: none !important;
+  margin: 0 72px !important;
+}
+.rhap_controls-section {
+  flex: none !important;
+  justify-content: center !important;
+}
+/* .rhap_main-controls {
+  border: 2px solid yellow;
+} */
+
+.rhap_play-pause-button {
+  margin: 0 75px !important;
+}
+.rhap_volume-button {
+  width: 100px !important;
+}
+.song-list {
+  display: flex;
+  margin: 20px 0;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+}
+
+.song-ellipse {
+  position: absolute;
+  left: 5%;
+}
+.song-dets {
+  position: absolute;
+  left: 15%;
+}
+
+.song-author {
+  position: absolute;
+  left: 55%;
+}
+.song-time {
+  position: absolute;
+  left: 90%;
+}
+.now-playing-who {
+  position: absolute;
+  border: 2px solid blue;
+  width: 902px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 10%;
+  background: #000000;
+  border: 1px solid #660099;
+  border-radius: 4px;
+  margin-left: 5%;
 }
