@@ -9,7 +9,6 @@ import RootLayout from "./layouts/RootLayout";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import LibraryLayout from "./layouts/LibraryLayout";
 import Songs from "./pages/Library/Songs";
 import NowPlaying from "./pages/Library/NowPlaying";
 import Playlist from "./pages/Playlist";
