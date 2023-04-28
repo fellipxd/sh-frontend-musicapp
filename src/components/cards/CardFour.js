@@ -1,6 +1,6 @@
 import { CardImage2, CardBody2, CardContainer2 } from "./CardElements";
 
-const Card4 = ({ img, alt, spanText }) => {
+const CardFour = ({ img, alt, spanText }) => {
   return (
     <CardContainer2>
       <CardImage2 src={img} alt={alt} />
@@ -9,4 +9,4 @@ const Card4 = ({ img, alt, spanText }) => {
   );
 };
 
-export default Card4;
+export default CardFour;
