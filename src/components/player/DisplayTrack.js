@@ -1,43 +1,27 @@
-// import { useContext } from 'react';
-// import AppContext from '../../state/context';
-// import { tracks } from '../../data/tracks';
-// const DisplayTrack = () => {
-//   const {
-//     trackIndex
-//   } = useContext(AppContext);
-//   // const currentTrack = musicTracks[currentTrack];
-//   console.log("tracks", tracks[trackIndex])
-//   return (
-//     <div className="now-wrapper">
-//       {/* <h2>Now Playing:</h2> */}
-//       <div className='library-img'>
-//         <img src={tracks[trackIndex].thumbnail} alt="player" />
-//       </div>
-//       {/* 
-//       <h3>{tracks[trackIndex].title}</h3> */}
-//       {/* <h3>{tracks[trackIndex].author}</h3> */}
-//     </div>
-//   );
-// };
-// export default DisplayTrack;
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import AppContext from '../../state/context';
 import { tracks } from '../../data/tracks';
 const defaultThumbnail = '/images/1.png'
 
 const DisplayTrack = () => {
   const { trackIndex } = useContext(AppContext);
+  const [lyrics, setLyrics] = useState(false)
+  const toggleLyrics = () => {
+    setLyrics(!lyrics)
 
-  console.log("tracks", defaultThumbnail);
-
+  }
+  console.log(lyrics)
   const thumbnail = tracks[trackIndex]?.thumbnail || defaultThumbnail;
 
   return (
     <div className="now-wrapper">
-      <div className='library-img'>
+      <div className={lyrics ? "show-lyrics" : 'library-img'}>
         <img src={thumbnail} alt="player" />
       </div>
-      <div className='now-playing-who'>
+      <div className='lyric-view'>
+        <p>Mans takes no L</p>
+      </div>
+      <div className='now-playing-who' onClick={toggleLyrics}>
         <h3>{tracks[trackIndex].title} - {tracks[trackIndex].author}</h3>
       </div>
     </div>

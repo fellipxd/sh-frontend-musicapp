@@ -300,6 +300,10 @@ body {
   align-items: flex-end;
   justify-content: space-between;
 }
+.btn-wrapper {
+  display: flex;
+  margin-top: -25px;
+}
 .landing-logo {
   display: flex;
   align-items: center;
@@ -553,12 +557,21 @@ body {
   height: 100%;
   width: 100%;
 }
+.show-lyrics {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
 
 .rhap_controls-section {
   background: #660099;
   padding: 15px;
 }
-.library-img img {
+.library-img img,
+.show-lyrics img {
   border-radius: 8px;
   height: 100%;
   width: 100%;
@@ -624,4 +637,55 @@ body {
   border: 1px solid #660099;
   border-radius: 4px;
   margin-left: 5%;
+  cursor: pointer;
+}
+
+.bg {
+  position: absolute;
+  background: grey;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+}
+.lyric-view {
+  height: 100%;
+  width: 100%;
+  padding: 21px 58px;
+  border: 1px solid #660099;
+  border-radius: 4px;
+}
+.albums {
+  position: relative;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  padding: 20px 70px;
+  display: flex;
+  gap: 65px;
+}
+.album-card {
+  position: relative;
+  width: 215px;
+  height: 138px;
+}
+
+.album-card-bg {
+  position: absolute;
+  width: 205px;
+  height: 128px;
+  left: -10px;
+  top: -10px;
+  background: #828282;
+  border-radius: 8px;
+}
+.album-card-fig {
+  position: absolute;
+  width: 205px;
+  height: 128px;
+  z-index: 2;
+  background: red;
+  border-radius: 8px;
 }

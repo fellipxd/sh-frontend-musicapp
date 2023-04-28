@@ -17,7 +17,7 @@ const Landing = () => {
             <Link to="#">Home</Link>
             <Link to="#">About Us</Link>
           </div>
-          <div>
+          <div className="btn-wrapper">
             <Link to="/login">
               <Button primary="true" light="true">
                 Login
