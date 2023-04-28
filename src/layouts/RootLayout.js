@@ -5,7 +5,9 @@ import { Outlet } from 'react-router';
 import MusicPlayer from '../components/player/AudioPlayer';
 
 
+
 function RootLayout() {
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   function toggleSidebar() {
