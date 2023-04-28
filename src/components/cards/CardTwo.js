@@ -1,4 +1,10 @@
-import { CardContainer, CardImage, CardHeader, CardBody, CardP } from "./CardElements";
+import {
+  CardContainer,
+  CardImage,
+  CardHeader,
+  CardBody,
+  CardP,
+} from "./CardElements";
 
 const CardTwo = ({ img, alt, headerText, spanText, spanText2 }) => {
   return (

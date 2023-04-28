@@ -12,7 +12,7 @@ const CardThree = ({ img, alt, spanText, spanText2 }) => {
       <CardImage src={img} alt={alt} />
       <CardWrapper>
         <CardBody>
-          Total songs: <CardP>{spanText}</CardP>
+          {spanText}
         </CardBody>
         <CardP>{spanText2}</CardP>
       </CardWrapper>

@@ -20,8 +20,6 @@ export const CardHeader = styled.h2`
 `;
 
 export const CardBody = styled.span`
-  display: flex;
-  gap: 1rem;
   font-size: 0.7rem;
   color: #fff;
 `;

@@ -1,9 +1,68 @@
 import { FcGoogle } from "react-icons/fc";
-import Input from "../components/Input";
+// import Input from "../components/Input";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
+import { useContext } from "react";
+import AppContext from "../state/context";
 
 const Signup = () => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    profileName,
+    setProfileName,
+    day,
+    setDay,
+    month,
+    setMonth,
+    year,
+    setYear,
+    errMessage,
+    setErrMessage,
+    successMessage,
+    setSuccessMessage,
+  } = useContext(AppContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const result = {
+      email,
+      password,
+      confirmPassword,
+      profileName,
+      day,
+      month,
+      year,
+    };
+
+    console.log(result);
+
+    fetch("https://muzira.shbootcamp.com.ng/signup.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => {
+        return res.json();
+        // console.log(res.json())
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.status === "error") {
+          setErrMessage(data.message);
+        } else {
+          setSuccessMessage(data.message);
+        }
+      });
+  };
+
   return (
     <div className="s-container">
       <div className="s-signup">
@@ -14,32 +73,101 @@ const Signup = () => {
         </button>
         <span className="s-span-1">OR</span>
         <div className="s-inputContainer">
-          <Input type="email" placeholder="Email Address " />
-          <Input type="password" placeholder="Create Password " />
-          <Input type="password" placeholder="Confirm Password " />
-          <Input type="text" placeholder="Enter Profile Name " />
+          <input
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            className="s-input"
+            type="email"
+            placeholder="Email Address "
+          />
+          <input
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            className="s-input"
+            type="password"
+            placeholder="Create Password "
+          />
+          <input
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
+            className="s-input"
+            type="password"
+            placeholder="Confirm Password "
+          />
+          <input
+            value={profileName}
+            onChange={(e) => {
+              setProfileName(e.target.value);
+            }}
+            className="s-input"
+            type="text"
+            placeholder="Enter Profile Name "
+          />
         </div>
         <div className="mt-1">
           <p>What is your date of birth</p>
           <span className="s-flex">
-            <input type="text" placeholder="Day" className="s-input-2" />
-            <input type="text" placeholder="Month" className="s-input-3" />
-            <input type="text" placeholder="Year" className="s-input-4" />
+            <input
+              value={day}
+              onChange={(e) => {
+                setDay(e.target.value);
+              }}
+              type="text"
+              placeholder="Day"
+              className="s-input-2"
+            />
+            <input
+              value={month}
+              onChange={(e) => {
+                setMonth(e.target.value);
+              }}
+              type="text"
+              placeholder="Month"
+              className="s-input-3"
+            />
+            <input
+              value={year}
+              onChange={(e) => {
+                setYear(e.target.value);
+              }}
+              type="text"
+              placeholder="Year"
+              className="s-input-4"
+            />
           </span>
         </div>
         <div className="mt-1">
           <p>Gender</p>
           <div className="labelContainer">
             <div>
-              <Input type="radio" id="male" name="gender" value="Male" />
+              <input
+                className="s-input"
+                type="radio"
+                id="male"
+                name="gender"
+                value="Male"
+              />
               <label htmlFor="male">Male</label>
             </div>
             <div>
-              <Input type="radio" id="female" name="gender" value="Female" />
+              <input
+                className="s-input"
+                type="radio"
+                id="female"
+                name="gender"
+                value="Female"
+              />
               <label htmlFor="female">Female</label>
             </div>
             <div>
-              <Input
+              <input
+                className="s-input"
                 type="radio"
                 id="others"
                 name="gender"
@@ -59,9 +187,21 @@ const Signup = () => {
           fontBig="true"
           big="true"
           widthBig="true"
+          onClick={handleSubmit}
         >
-          <Link to="/root">SIGN UP</Link>
+          SIGN UP
         </Button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textTransform: "capitalize",
+            marginTop: "1rem",
+          }}
+        >
+          <span style={{ color: "red" }}>{errMessage}</span>
+          <span style={{ color: "green" }}>{successMessage}</span>
+        </div>
         <span className="s-span-2">
           Have an account?
           <Link to="/login">Log in</Link>

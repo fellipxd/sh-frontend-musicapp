@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import Landing from "./pages/Landing";
 import AppProvider from "./state/provider";
 import Library from "./pages/Library/Index";
+import { musicLoader } from "./state/loader";
 
 function App() {
   const router = createBrowserRouter(
@@ -26,7 +27,7 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="root" element={<RootLayout />}>
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={<Home />} loader={musicLoader} />
           {/* <Route path="library" element={<LibraryLayout />} /> */}
           <Route path="library" element={<Library />}>
             <Route path="songs" element={<Songs />} />
