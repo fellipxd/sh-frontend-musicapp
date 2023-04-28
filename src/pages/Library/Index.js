@@ -8,7 +8,6 @@ import NowPlaying from '../Library/NowPlaying'
 import './playerStyles.css'
 import Album from './album';
 import Songs from './Songs';
-import MusicPlayer from '../../components/player/AudioPlayer';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
