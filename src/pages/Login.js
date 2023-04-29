@@ -1,12 +1,69 @@
 import { FcGoogle } from "react-icons/fc";
 // import Input from "../components/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
 import { useContext } from "react";
 import AppContext from "../state/context";
 
 const Login = () => {
-  const { email, password, setEmail, setPassword } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const {
+    email,
+    password,
+    setEmail,
+    setPassword,
+    errMessage,
+    setErrMessage,
+    successMessage,
+    setSuccessMessage,
+  } = useContext(AppContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const result = {
+      email,
+      password,
+    };
+
+    console.log(result);
+
+    fetch("https://muzira.shbootcamp.com.ng/signin.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.status === "error") {
+          setErrMessage(data.message);
+          setTimeout(() => {
+            setErrMessage("");
+          }, 3000);
+        } else {
+          setSuccessMessage(data.message);
+          sessionStorage.setItem("sessionId", data.user_id);
+          console.log(data.user_id)
+          setTimeout(() => {
+            navigate("/root");
+            setSuccessMessage("");
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrMessage("Wrong login details");
+        setTimeout(() => {
+          setErrMessage("");
+        }, 3000);
+      });
+  };
 
   return (
     <div className="s-container">
@@ -14,14 +71,14 @@ const Login = () => {
         <h2>Login to Muzira</h2>
         <div className="s-inputContainer">
           <input
-          className="s-input"
+            className="s-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Email Address"
           />
           <input
-          className="s-input"
+            className="s-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -29,29 +86,27 @@ const Login = () => {
           />
         </div>
         <p className="s-p s-purple">Forgot Password?</p>
-        {/* <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button
-            primary="true"
-            light="true"
-            fontBig="true"
-            big="true"
-            onClick={() => {
-              console.log("clicked", email, password);
-            }}
-          >
-            Test
-          </Button>
-        </div> */}
         <Button
           primary="true"
           light="true"
           fontBig="true"
           big="true"
           widthBig="true"
-          // onSubmit={handleSubmit}
+          onClick={handleSubmit}
         >
-          <Link to="/root">LOGIN</Link>
+          LOGIN
         </Button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textTransform: "capitalize",
+            marginTop: "1rem",
+          }}
+        >
+          <span style={{ color: "red" }}>{errMessage}</span>
+          <span style={{ color: "green" }}>{successMessage}</span>
+        </div>
         <span className="s-span-1">or</span>
         <button className="s-btn s-btn-2" type="button">
           <FcGoogle />

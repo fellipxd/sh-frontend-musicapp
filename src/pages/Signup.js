@@ -1,11 +1,13 @@
 import { FcGoogle } from "react-icons/fc";
 // import Input from "../components/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
 import { useContext } from "react";
 import AppContext from "../state/context";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const {
     email,
     setEmail,
@@ -25,6 +27,8 @@ const Signup = () => {
     setErrMessage,
     successMessage,
     setSuccessMessage,
+    gender,
+    setGender
   } = useContext(AppContext);
 
   const handleSubmit = (e) => {
@@ -38,6 +42,7 @@ const Signup = () => {
       day,
       month,
       year,
+      gender
     };
 
     console.log(result);
@@ -57,8 +62,17 @@ const Signup = () => {
         console.log(data);
         if (data.status === "error") {
           setErrMessage(data.message);
+          setTimeout(() => {
+            setErrMessage("")
+          }, 3000)
         } else {
           setSuccessMessage(data.message);
+          setTimeout(() => {
+            navigate("/login");
+            setSuccessMessage("");
+            setEmail("");
+            setPassword("");
+          }, 3000);
         }
       });
   };
@@ -152,6 +166,8 @@ const Signup = () => {
                 id="male"
                 name="gender"
                 value="Male"
+                checked={gender === "Male"}
+                onChange={() => setGender("Male")}
               />
               <label htmlFor="male">Male</label>
             </div>
@@ -162,6 +178,8 @@ const Signup = () => {
                 id="female"
                 name="gender"
                 value="Female"
+                checked={gender === "Female"}
+                onChange={() => setGender("Female")}
               />
               <label htmlFor="female">Female</label>
             </div>
@@ -172,6 +190,8 @@ const Signup = () => {
                 id="others"
                 name="gender"
                 value="Prefer not to say"
+                checked={gender === "Prefer not to say"}
+                onChange={() => setGender("Prefer not to say")}
               />
               <label htmlFor="others">Prefer not to say</label>
             </div>

@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import MusicPlayer from '../components/player/AudioPlayer';
 
 
 
 function RootLayout() {
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const loggedInFromSession = sessionStorage.getItem('loggedIn');
+    if (!loggedInFromSession) {
+      navigate('/login');
+    }
+    console.log(loggedInFromSession)
+  }, [navigate]);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 

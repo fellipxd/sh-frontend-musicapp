@@ -17,6 +17,10 @@ const AppProvider = (props) => {
   const [year, setYear] = useState("");
   const [errMessage, setErrMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [gender, setGender] = useState("");
+  const [topPicks, setTopPicks] = useState([]);
+  const [recentlyPlayed, setRecentlyPlayed] = useState([]);
+  const [newRelease, setNewRelease] = useState([]);
 
   return (
     <AppContext.Provider
@@ -47,6 +51,14 @@ const AppProvider = (props) => {
         setErrMessage,
         successMessage,
         setSuccessMessage,
+        gender,
+        setGender,
+        topPicks,
+        setTopPicks,
+        recentlyPlayed,
+        setRecentlyPlayed,
+        newRelease,
+        setNewRelease,
       }}
     >
       {props.children}
