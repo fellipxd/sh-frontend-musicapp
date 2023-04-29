@@ -1,6 +1,8 @@
 const Playlist = () => {
   return (
-    <div>Playlist</div>
+    <div className="page-wrapper">
+
+    </div>
   )
 }
 

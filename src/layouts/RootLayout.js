@@ -11,7 +11,7 @@ function RootLayout() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const loggedInFromSession = sessionStorage.getItem('loggedIn');
+    const loggedInFromSession = sessionStorage.getItem('sessionId');
     if (!loggedInFromSession) {
       navigate('/login');
     }

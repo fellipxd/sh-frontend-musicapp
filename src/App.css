@@ -407,7 +407,7 @@ body {
 .dashboard-container {
   display: flex;
   flex-direction: row;
-  height: 940px;
+  min-height: 940px;
   overflow: hidden;
 }
 
@@ -530,8 +530,8 @@ body {
 .controler {
   z-index: 40;
   display: flex;
-  position: absolute;
-  top: 85%;
+  position: relative;
+  /* top: 10%; */
   margin-left: 70px;
   /* right: 14%; */
   width: 67vw;

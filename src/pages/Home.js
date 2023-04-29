@@ -21,21 +21,21 @@ const Home = () => {
   } = useContext(AppContext);
 
   useEffect(() => {
-      async function topPicks() {
-        const res = await fetch(
-          "https://muzira.shbootcamp.com.ng/top_picks.php"
-        );
-        const data = await res.json();
-        const dataMessage = data.message.top_picks;
-        console.log(data.message);
-        // setTopPicks(dataMessage);
-        // setIsLoading(false)
-      }
-      topPicks();
+    async function topPicks() {
+      const res = await fetch(
+        "https://muzira.shbootcamp.com.ng/top_picks.php"
+      );
+      const data = await res.json();
+      const dataMessage = data.message.top_picks;
+      console.log(data.message);
+      setTopPicks(dataMessage);
+      setIsLoading(false)
+    }
+    topPicks();
 
     async function recentlyPlayed() {
       const res = await fetch(
-        "https://muzira.shbootcamp.com.ng/recently_played.php"
+        `https://muzira.shbootcamp.com.ng/recently_played.php?sessionId=${user_id}`
       );
       const data = await res.json();
       const dataMessage = data.message.recently_played;
@@ -73,14 +73,17 @@ const Home = () => {
         </div>
         <div className={styles.wrapper}>
           <p>Recently Played</p>
-          <div className={styles.content}>
-            {recentlyPlayed.map((recentP) => (
-              <Card
-                spanText={recentP.artist_name}
-                spanText2={recentP.music_title}
-              />
-            ))}
-          </div>
+          {recentlyPlayed ?
+            <div className={styles.content}>
+              {recentlyPlayed?.map((recentP) => (
+                <Card
+                  spanText={recentP.artist_name}
+                  spanText2={recentP.music_title}
+                />
+              ))}
+            </div>
+            : <p>No songs streamed yet</p>
+          }
         </div>
         <div className={styles.wrapper}>
           <p>New Releases</p>
