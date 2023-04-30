@@ -25,8 +25,7 @@ function RootLayout() {
     setIsSidebarOpen(!isSidebarOpen);
   }
 
-  function toggleUpload(e) {
-    e.preventDefault();
+  function toggleUpload() {
     setIsOpen(!isOpen);
     console.log("clicked");
   }

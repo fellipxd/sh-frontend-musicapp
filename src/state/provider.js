@@ -18,6 +18,14 @@ const AppProvider = (props) => {
   const [errMessage, setErrMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [gender, setGender] = useState("");
+  const [artistName, setArtistName] = useState("");
+  const [music, setmusic] = useState("");
+  const [musicTitle, setMusicTitle] = useState("");
+  const [artistLabel, setArtistLabel] = useState("");
+  const [genre, setGenre] = useState("");
+  const [album, setAlbum] = useState("");
+  const [coverPicture, setCoverPicture] = useState("");
+  const [releaseDate, setReleaseDate] = useState("");
   const [topPicks, setTopPicks] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
   const [newRelease, setNewRelease] = useState([]);
@@ -71,6 +79,22 @@ const AppProvider = (props) => {
         setProfile,
         isOpen,
         setIsOpen,
+        artistName,
+        setArtistName,
+        music,
+        setmusic,
+        musicTitle,
+        setMusicTitle,
+        artistLabel,
+        setArtistLabel,
+        genre,
+        setGenre,
+        album,
+        setAlbum,
+        coverPicture,
+        setCoverPicture,
+        releaseDate,
+        setReleaseDate,
       }}
     >
       {props.children}
