@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import Card from "../components/cards/Index";
 import styles from "../css/Home.module.css";
 import AppContext from "../state/context";
@@ -55,7 +55,7 @@ const Home = () => {
   }, [user_id, setTopPicks, setNewRelease, setRecentlyPlayed, setIsLoading]);
 
   return (
-    <div id="home">
+    <div id="home" className="page-wrapper">
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <p>Top Picks</p>

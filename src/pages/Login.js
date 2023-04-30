@@ -51,7 +51,7 @@ const Login = () => {
           sessionStorage.setItem("sessionId", data.user_id);
           console.log(data.user_id)
           setTimeout(() => {
-            navigate("/root");
+            navigate("/root/home");
             setSuccessMessage("");
           }, 3000);
         }

@@ -32,7 +32,10 @@ function RootLayout() {
         <img src='/images/bottomright.png' alt='right' className="bottomright" />
         <img src='/images/bottomleft.png' alt='left' className="bottomleft" />
         <Header />
-        <Outlet />
+        <div >
+          <Outlet />
+        </div>
+
         <MusicPlayer />
       </div>
 

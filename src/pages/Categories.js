@@ -1,6 +1,6 @@
 const Categories = () => {
   return (
-    <div>Categories</div>
+    <div className="page-wrapper">Categories</div>
   )
 }
 
