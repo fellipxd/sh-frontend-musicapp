@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import Card from "../components/cards/Index";
 import styles from "../css/Home.module.css";
 import AppContext from "../state/context";
@@ -9,8 +9,6 @@ const Home = () => {
   const user = sessionStorage.getItem("sessionId");
   const user_id = parseInt(user);
 
-  const [isLoading, setIsLoading] = useState(true);
-
   const {
     topPicks,
     setTopPicks,
@@ -18,18 +16,18 @@ const Home = () => {
     setRecentlyPlayed,
     newRelease,
     setNewRelease,
+    isLoading,
+    setIsLoading,
   } = useContext(AppContext);
 
   useEffect(() => {
     async function topPicks() {
-      const res = await fetch(
-        "https://muzira.shbootcamp.com.ng/top_picks.php"
-      );
+      const res = await fetch("https://muzira.shbootcamp.com.ng/top_picks.php");
       const data = await res.json();
       const dataMessage = data.message.top_picks;
       console.log(data.message);
       setTopPicks(dataMessage);
-      setIsLoading(false)
+      setIsLoading(false);
     }
     topPicks();
 
@@ -54,7 +52,7 @@ const Home = () => {
       setNewRelease(dataMessage);
     }
     newRelease();
-  }, [user_id, setTopPicks, setNewRelease, setRecentlyPlayed]);
+  }, [user_id, setTopPicks, setNewRelease, setRecentlyPlayed, setIsLoading]);
 
   return (
     <div id="home">
@@ -73,7 +71,7 @@ const Home = () => {
         </div>
         <div className={styles.wrapper}>
           <p>Recently Played</p>
-          {recentlyPlayed ?
+          {recentlyPlayed ? (
             <div className={styles.content}>
               {recentlyPlayed?.map((recentP) => (
                 <Card
@@ -82,8 +80,9 @@ const Home = () => {
                 />
               ))}
             </div>
-            : <p>No songs streamed yet</p>
-          }
+          ) : (
+            <p>No songs streamed yet</p>
+          )}
         </div>
         <div className={styles.wrapper}>
           <p>New Releases</p>
