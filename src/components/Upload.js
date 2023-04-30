@@ -6,7 +6,7 @@ const Upload = ({ toggleUpload }) => {
   const { isOpen } = useContext(AppContext);
 
   return (
-    <div className={isOpen ? "hidden" : "upload-container"}>
+    <div className={isOpen ? "upload-container" : "hidden"}>
       <form className="form">
         <div>
           <label htmlFor="artist_name">Artist name:</label>
