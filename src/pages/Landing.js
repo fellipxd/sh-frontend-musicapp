@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
-
+import { useState } from "react";
+import { SlClose } from 'react-icons/sl'
 const Landing = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+
+  console.log(showMenu)
   return (
     <div id="container" className="landing">
       <img src="/images/top.png" alt="top" className="top" />
@@ -12,8 +21,12 @@ const Landing = () => {
           {" "}
           <img src="/images/logo.png" alt="logo" />
         </div>
-        <nav>
-          <div>
+        <nav className={showMenu ? "show" : "hide"}>
+          <div className="close " onClick={toggleMenu}>
+            <SlClose onClick={toggleMenu} />
+          </div>
+
+          <div className="landing-link">
             <Link to="#">Home</Link>
             <Link to="#">About Us</Link>
           </div>
@@ -28,10 +41,15 @@ const Landing = () => {
             </Link>
           </div>
         </nav>
+        <div className="hamburger" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
       <div className="landing-content">
         <div className="left">
-          <div>
+          <div className="left-desc">
             <h1>Discover your moods</h1>
             <p>
               Explore your music activities and generate new and exciting

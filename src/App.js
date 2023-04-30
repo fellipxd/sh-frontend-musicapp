@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import Landing from "./pages/Landing";
 import AppProvider from "./state/provider";
 import Library from "./pages/Library/Index";
+import EmptyPage from "./pages/empty";
 // import { musicLoader } from "./state/loader";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="playlist" element={<Playlist />} />
           <Route path="categories" element={<Categories />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="empty" element={<EmptyPage />} />
         </Route>
       </Route>
     )

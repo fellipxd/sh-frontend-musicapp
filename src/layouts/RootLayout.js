@@ -46,10 +46,7 @@ function RootLayout() {
         />
         <img src="/images/bottomleft.png" alt="left" className="bottomleft" />
         <Header toggleUpload={toggleUpload} />
-        <Upload
-          className={isOpen ? "active" : ""}
-          toggleUpload={toggleUpload}
-        />
+        <Upload toggleUpload={toggleUpload} />
         <Outlet />
         <MusicPlayer />
       </div>

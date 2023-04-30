@@ -51,7 +51,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/root/createplaylist" activeClassName="active">
+              <NavLink exact to="/root/empty" activeClassName="active">
                 <svg className='svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 4.5H16.5V6H3V4.5ZM3 9H16.5V10.5H3V9ZM3 13.5H12V15H3V13.5ZM15.75 13.5L21 17.25L15.75 21V13.5Z" />
                 </svg>
@@ -62,7 +62,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
           </div>
           <div className='nav-space'>
             <li>
-              <NavLink exact to="/root/browsecategories" activeClassName="active">
+              <NavLink exact to="/root/empty" activeClassName="active">
                 <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1.5H21M1 9.5H6.5M1 17.5H6.5" stroke-width="2" stroke-linecap="round" />
                   <path fill='none' d="M14.75 15C15.8772 15 16.9582 14.5522 17.7552 13.7552C18.5522 12.9582 19 11.8772 19 10.75C19 9.62283 18.5522 8.54183 17.7552 7.7448C16.9582 6.94777 15.8772 6.5 14.75 6.5C13.6228 6.5 12.5418 6.94777 11.7448 7.7448C10.9478 8.54183 10.5 9.62283 10.5 10.75C10.5 11.8772 10.9478 12.9582 11.7448 13.7552C12.5418 14.5522 13.6228 15 14.75 15V15Z" stroke-width="2" />
@@ -73,7 +73,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/root/favoritesongs" activeClassName="active">
+              <NavLink exact to="/root/empty" activeClassName="active">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.5 3C14.76 3 13.09 3.81 12 5.09C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.42 2 8.5C2 12.28 5.4 15.36 10.55 20.04L12 21.35L13.45 20.03C18.6 15.36 22 12.28 22 8.5C22 5.42 19.58 3 16.5 3ZM12.1 18.55L12 18.65L11.9 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 5.99 11.07 7.36H12.94C13.46 5.99 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55Z" fill="white" />
                 </svg>
@@ -94,7 +94,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
             </li>
           </div>
           <li>
-            <NavLink exact to="/root/settings" activeClassName="active">
+            <NavLink exact to="/root/empty" activeClassName="active">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_2665_1671)">
                   <path fill='none' d="M9.75 1.5V4.5L8.25 5.25L6 3L3 6L5.25 8.25L4.5 9.75H1.5V14.25H4.5L5.25 15.75L3 18L6 21L8.25 18.75L9.75 19.5V22.5H14.25V19.5L15.75 18.75L18 21L21 18L18.75 15.75L19.5 14.25H22.5V9.75H19.5L18.75 8.25L21 6L18 3L15.75 5.25L14.25 4.5V1.5H9.75Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
