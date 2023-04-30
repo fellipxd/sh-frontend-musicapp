@@ -23,6 +23,8 @@ const AppProvider = (props) => {
   const [newRelease, setNewRelease] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [profile, setProfile] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <AppContext.Provider
@@ -65,6 +67,10 @@ const AppProvider = (props) => {
         setPlaylist,
         isLoading,
         setIsLoading,
+        profile,
+        setProfile,
+        isOpen,
+        setIsOpen,
       }}
     >
       {props.children}
