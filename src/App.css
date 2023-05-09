@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0%;
   padding: 0%;
@@ -576,6 +580,11 @@ body {
   color: #660099;
   font-size: 1.5rem;
   margin-right: 3rem;
+  cursor: pointer;
+}
+
+.s-img {
+  object-fit: cover;
 }
 
 .page-wrapper {

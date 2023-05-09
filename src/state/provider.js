@@ -33,6 +33,7 @@ const AppProvider = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [profile, setProfile] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState("");
 
   return (
     <AppContext.Provider
@@ -95,6 +96,7 @@ const AppProvider = (props) => {
         setCoverPicture,
         releaseDate,
         setReleaseDate,
+        musicPlaying, setMusicPlaying
       }}
     >
       {props.children}

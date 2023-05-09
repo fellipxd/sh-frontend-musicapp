@@ -1,7 +1,7 @@
 import { ReactComponent as NotificationIcon } from "./icons/notification.svg";
 import { TbCloudUpload } from "react-icons/tb";
 
-const Header = ({toggleUpload}) => {
+const Header = ({ toggleUpload }) => {
   return (
     <div className="header">
       <div className="input-div">
@@ -23,7 +23,7 @@ const Header = ({toggleUpload}) => {
         <input type="text" placeholder="Artists, Songs, Lyrics and more" />
       </div>
       <div className="profile">
-        <div className="upload">
+        <div className="upload cursor-pointer">
           <TbCloudUpload onClick={toggleUpload} />
         </div>
         <div>

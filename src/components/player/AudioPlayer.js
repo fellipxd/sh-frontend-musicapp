@@ -9,8 +9,8 @@ import { IoMdPlay, IoMdPause } from "react-icons/io"
 
 export default function MusicPlayer(show) {
   const {
-    trackIndex,
-    setTrackIndex
+    setTrackIndex,
+    musicPlaying
   } = useContext(AppContext);
 
 
@@ -35,11 +35,11 @@ export default function MusicPlayer(show) {
     <div className="controler" >
       <AudioPlayer
         style={{ boxShadow: "none", color: "white", background: "transparent", }}
-        src={tracks[trackIndex].src}
-        onPlay={(e) => console.log(tracks[trackIndex].title)}
+        src={`https://muzira.shbootcamp.com.ng/musics/${musicPlaying.music}`}
+        onPlay={(e) => console.log(musicPlaying.music)}
         showSkipControls={true}
         showJumpControls={false}
-        header={`Now playing: ${tracks[trackIndex].title}`}
+        header={`Now playing: ${musicPlaying.music}`}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}
         onEnded={handleClickNext}

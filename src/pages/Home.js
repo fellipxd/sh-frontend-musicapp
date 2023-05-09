@@ -1,68 +1,30 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Card from "../components/cards/Index";
 import styles from "../css/Home.module.css";
 import AppContext from "../state/context";
+import useSongs from "../components/useSongs";
 // import { useNavigate } from "react-router";
 
 const Home = () => {
   // const navigate = useNavigate();
-  const user = sessionStorage.getItem("sessionId");
-  const user_id = parseInt(user);
+  const { isLoading, topPicks, recentlyPlayed, newRelease } = useSongs();
 
-  const {
-    topPicks,
-    setTopPicks,
-    recentlyPlayed,
-    setRecentlyPlayed,
-    newRelease,
-    setNewRelease,
-    isLoading,
-    setIsLoading,
-  } = useContext(AppContext);
-
-  useEffect(() => {
-    async function topPicks() {
-      const res = await fetch("https://muzira.shbootcamp.com.ng/top_picks.php");
-      const data = await res.json();
-      const dataMessage = data.message.top_picks;
-      console.log(data.message);
-      setTopPicks(dataMessage);
-      setIsLoading(false);
-    }
-    topPicks();
-
-    async function recentlyPlayed() {
-      const res = await fetch(
-        `https://muzira.shbootcamp.com.ng/recently_played.php?sessionId=${user_id}`
-      );
-      const data = await res.json();
-      const dataMessage = data.message.recently_played;
-      console.log(data);
-      setRecentlyPlayed(dataMessage);
-    }
-    recentlyPlayed();
-
-    async function newRelease() {
-      const res = await fetch(
-        "https://muzira.shbootcamp.com.ng/new_release.php"
-      );
-      const data = await res.json();
-      const dataMessage = data.message.new_release;
-      console.log(dataMessage);
-      setNewRelease(dataMessage);
-    }
-    newRelease();
-  }, [user_id, setTopPicks, setNewRelease, setRecentlyPlayed, setIsLoading]);
+  const {musicPlaying, setMusicPlaying } = useContext(AppContext);
 
   return (
     <div id="home" className="page-wrapper">
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <p>Top Picks</p>
-          <div className={styles.content}>
+          <div className={`${styles.content}`}>
             {isLoading && <div>Loading...</div>}
-            {topPicks.map((topPick) => (
+            {topPicks?.map((topPick) => (
               <Card
+                onClick={() => {
+                  setMusicPlaying(topPick);
+                  console.log(musicPlaying);
+                }}
+                img={`https://muzira.shbootcamp.com.ng/cover/${topPick.cover_picture}`}
                 spanText={topPick.artist_name}
                 spanText2={topPick.music_title}
               />
@@ -75,6 +37,11 @@ const Home = () => {
             <div className={styles.content}>
               {recentlyPlayed?.map((recentP) => (
                 <Card
+                onClick={() => {
+                  setMusicPlaying(recentP);
+                  console.log(musicPlaying);
+                }}
+                  img={`https://muzira.shbootcamp.com.ng/cover/${recentP.cover_picture}`}
                   spanText={recentP.artist_name}
                   spanText2={recentP.music_title}
                 />
@@ -87,8 +54,16 @@ const Home = () => {
         <div className={styles.wrapper}>
           <p>New Releases</p>
           <div className={styles.content}>
-            {newRelease.map((newR) => (
-              <Card spanText={newR.artist_name} spanText2={newR.music_title} />
+            {newRelease?.map((newR) => (
+              <Card
+              onClick={() => {
+                setMusicPlaying(newR);
+                console.log(musicPlaying);
+              }}
+                img={`https://muzira.shbootcamp.com.ng/cover/${newR.cover_picture}`}
+                spanText={newR.artist_name}
+                spanText2={newR.music_title}
+              />
             ))}
           </div>
         </div>

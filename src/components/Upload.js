@@ -1,81 +1,83 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button } from "./ButtonElement";
 import AppContext from "../state/context";
 
 const Upload = ({ toggleUpload }) => {
   const {
     isOpen,
-    errMessage,
-    setErrMessage,
-    successMessage,
-    setSuccessMessage,
-    artistName,
-    setArtistName,
-    music,
-    setmusic,
-    musicTitle,
-    setMusicTitle,
-    artistLabel,
-    setArtistLabel,
-    genre,
-    setGenre,
-    album,
-    setAlbum,
-    coverPicture,
-    setCoverPicture,
-    releaseDate,
-    setReleaseDate,
+    // errMessage,
+    // setErrMessage,
+    // successMessage,
+    // setSuccessMessage,
   } = useContext(AppContext);
 
-  const handleSubmit = (e) => {
+  const [musicData, setMusicData] = useState({
+    artist_name: "",
+    music: null,
+    music_title: "",
+    artist_label: "",
+    genre: "",
+    album: "",
+    cover_picture: null,
+    release_date: ""
+  });
+
+  const handleInputChange = (e) => {
+    const {name, value} = e.target
+
+    setMusicData((prev) => ({
+      ...prev, [name]: value
+    }))
+  }
+
+  const handleFileInputChange = (e) => {
+    const {name} = e.target
+    const file = e.target.files[0];
+
+    setMusicData((prev) => ({
+      ...prev,
+      [name]: file,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = {
-      artistName,
-      music,
-      musicTitle,
-      artistLabel,
-      genre,
-      album,
-      coverPicture,
-      releaseDate,
-    };
+    const formData = new FormData()
 
-    console.log(result);
+    formData.append("artist_name", musicData.artist_name)
+    formData.append("artist_label", musicData.artist_label)
+    formData.append("music", musicData.music)
+    formData.append("music_title", musicData.music_title)
+    formData.append("cover_picture", musicData.cover_picture)
+    formData.append("release_date", musicData.release_date)
+    formData.append("genre", musicData.genre)
+    formData.append("album", musicData.album)
+    
+    console.log(formData, formData.entries)
 
-    fetch("https://muzira.shbootcamp.com.ng/upload_song.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(result),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        if (data.status === "error") {
-          setErrMessage(data.message);
-          setTimeout(() => {
-            setErrMessage("");
-          }, 3000);
-        } else {
-          setSuccessMessage(data.message);
-          setTimeout(() => {
-            toggleUpload();
-            setSuccessMessage("");
-            setArtistName("");
-            setmusic("");
-            setMusicTitle("");
-            setArtistLabel("");
-            setGenre("");
-            setAlbum("");
-            setCoverPicture("");
-            setReleaseDate("");
-          }, 3000);
+    try {
+      const res = await fetch(
+        "https://muzira.shbootcamp.com.ng/uploadsong.php",
+        {
+          method: "POST",
+          body: formData,
         }
-      });
+      );
+
+      const { status, message } = await res.json();
+
+      if(status === "success") {
+        console.log(message)
+        toggleUpload()
+      } else {
+        console.log(message)
+      }
+
+    }
+    catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -85,10 +87,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="artist_name">Artist name:</label>
           <input
             type="text"
-            value={artistName}
-            onChange={(e) => {
-              setArtistName(e.target.value);
-            }}
+            name="artist_name"
+            value={musicData.artist_name}
+            onChange={handleInputChange}
             placeholder="Artist name"
             id="artist_name"
           />
@@ -97,10 +98,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="music">Music:</label>
           <input
             type="file"
-            value={music}
-            onChange={(e) => {
-              setmusic(e.target.value);
-            }}
+            name="music"
+            // accept="audio/*"
+            onChange={handleFileInputChange}
             id="music"
           />
         </div>
@@ -108,10 +108,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="music_title">Music title:</label>
           <input
             type="text"
-            value={musicTitle}
-            onChange={(e) => {
-              setMusicTitle(e.target.value);
-            }}
+            name="music_title"
+            value={musicData.music_title}
+            onChange={handleInputChange}
             placeholder="Music title"
             id="music_title"
           />
@@ -120,10 +119,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="artist_label">Artist Label:</label>
           <input
             type="text"
-            value={artistLabel}
-            onChange={(e) => {
-              setArtistLabel(e.target.value);
-            }}
+            name="artist_label"
+            value={musicData.artist_label}
+            onChange={handleInputChange}
             placeholder="Artist label"
             id="artist_label"
           />
@@ -132,10 +130,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="genre">Genre:</label>
           <input
             type="text"
-            value={genre}
-            onChange={(e) => {
-              setGenre(e.target.value);
-            }}
+            name="genre"
+            value={musicData.genre}
+            onChange={handleInputChange}
             placeholder="Genre"
             id="genre"
           />
@@ -144,10 +141,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="album">Album:</label>
           <input
             type="text"
-            value={album}
-            onChange={(e) => {
-              setAlbum(e.target.value);
-            }}
+            name="album"
+            value={musicData.album}
+            onChange={handleInputChange}
             placeholder="Album"
             id="album"
           />
@@ -156,10 +152,8 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="cover_picture">Cover Picture:</label>
           <input
             type="file"
-            value={coverPicture}
-            onChange={(e) => {
-              setCoverPicture(e.target.value);
-            }}
+            name="cover_picture"
+            onChange={handleFileInputChange}
             id="cover_picture"
           />
         </div>
@@ -167,10 +161,9 @@ const Upload = ({ toggleUpload }) => {
           <label htmlFor="release_date">Release Date:</label>
           <input
             type="date"
-            value={releaseDate}
-            onChange={(e) => {
-              setReleaseDate(e.target.value);
-            }}
+            name="release_date"
+            value={musicData.release_date}
+            onChange={handleInputChange}
             id="release_date"
           />
         </div>
@@ -184,7 +177,7 @@ const Upload = ({ toggleUpload }) => {
         >
           SUBMIT
         </Button>
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -194,7 +187,7 @@ const Upload = ({ toggleUpload }) => {
         >
           <span style={{ color: "red" }}>{errMessage}</span>
           <span style={{ color: "green" }}>{successMessage}</span>
-        </div>
+        </div> */}
       </form>
     </div>
   );

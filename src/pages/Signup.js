@@ -2,7 +2,7 @@ import { FcGoogle } from "react-icons/fc";
 // import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../state/context";
 
 const Signup = () => {
@@ -31,8 +31,12 @@ const Signup = () => {
     setGender
   } = useContext(AppContext);
 
+  const [isLoading, setIsLoading] = useState("SIGN UP");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setIsLoading("Loading...")
 
     const result = {
       email,
@@ -64,6 +68,7 @@ const Signup = () => {
           setErrMessage(data.message);
           setTimeout(() => {
             setErrMessage("")
+            setIsLoading("SIGN UP")
           }, 3000)
         } else {
           setSuccessMessage(data.message);
@@ -209,7 +214,7 @@ const Signup = () => {
           widthBig="true"
           onClick={handleSubmit}
         >
-          SIGN UP
+          {isLoading}
         </Button>
         <div
           style={{

@@ -2,11 +2,13 @@ import { FcGoogle } from "react-icons/fc";
 // import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ButtonElement";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../state/context";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState("LOGIN");
 
   const {
     email,
@@ -28,6 +30,7 @@ const Login = () => {
     };
 
     console.log(result);
+    setIsLoading("Loading...");
 
     fetch("https://muzira.shbootcamp.com.ng/signin.php", {
       method: "POST",
@@ -45,11 +48,12 @@ const Login = () => {
           setErrMessage(data.message);
           setTimeout(() => {
             setErrMessage("");
+            setIsLoading("LOGIN");
           }, 3000);
         } else {
           setSuccessMessage(data.message);
           sessionStorage.setItem("sessionId", data.user_id);
-          console.log(data.user_id)
+          console.log(data.user_id);
           setTimeout(() => {
             navigate("/root/home");
             setSuccessMessage("");
@@ -60,6 +64,7 @@ const Login = () => {
         console.log(error);
         setErrMessage("Wrong login details");
         setTimeout(() => {
+          setIsLoading("LOGIN");
           setErrMessage("");
         }, 3000);
       });
@@ -94,7 +99,7 @@ const Login = () => {
           widthBig="true"
           onClick={handleSubmit}
         >
-          LOGIN
+          {isLoading}
         </Button>
         <div
           style={{
