@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  background-color: #333;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 1rem;
+  gap: 0.2rem;
   z-index: 2;
   border-radius: 5px;
-  height: 230px;
-width: 210px;
-
+  height: 200px;
+  width: 210px;
 `;
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 143px;
-  border:2px solid white;
+  height: 150px;
+  border: none;
+  border-radius: 10px;
 `;
 
 export const CardHeader = styled.h2`
@@ -24,6 +24,7 @@ export const CardHeader = styled.h2`
 `;
 
 export const CardBody = styled.span`
+  text-transform: capitalize;
   font-size: 0.7rem;
   color: #fff;
 `;

@@ -15,6 +15,7 @@ const AppProvider = (props) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const [loading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [gender, setGender] = useState("");
@@ -96,7 +97,9 @@ const AppProvider = (props) => {
         setCoverPicture,
         releaseDate,
         setReleaseDate,
-        musicPlaying, setMusicPlaying
+        musicPlaying, setMusicPlaying,
+        loading,
+        setLoading
       }}
     >
       {props.children}

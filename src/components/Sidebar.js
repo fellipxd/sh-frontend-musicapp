@@ -1,119 +1,76 @@
-import { NavLink } from 'react-router-dom';
-import { ReactComponent as MenuIcon } from './icons/sidebar-icon.svg';
+import { BiHomeAlt2, BiUserCircle } from "react-icons/bi";
+import { ImFileMusic } from "react-icons/im";
+import { RiPlayListFill } from "react-icons/ri";
+import { BsHeart } from "react-icons/bs";
+import { CgPlayList, CgPlayListSearch } from "react-icons/cg";
+import { FiSettings } from "react-icons/fi";
+import { ReactComponent as MenuIcon } from "../components/icons/sidebar-icon.svg";
+import { NavLink } from "react-router-dom";
 
-
-function Sidebar({ isSidebarOpen, toggleSidebar }) {
+const Sidebar = () => {
   return (
-    <div className="sidebar" style={{ width: isSidebarOpen ? '20%' : '50px' }}>
-      <div className='icon-wrapper'>
-        <MenuIcon onClick={toggleSidebar} style={{ width: isSidebarOpen ? '88px' : '20px', height: isSidebarOpen ? '88px' : '20px', margin: '32px 87px 43px 88px', stroke: 'none' }} />
+    <div className="flex flex-col gap-10 h-full bg-purple-900 text-white py-4">
+      <div className="flex items-center justify-center">
+        <MenuIcon />
       </div>
-      <nav>
-        <ul>
-          <div className='nav-space'>
-            <li>
-              <NavLink exact to="home" activeClassName="active">
-                <svg className='svg' width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_2665_1691)">
-                    <path d="M12.7127 2.29571C12.6197 2.20201 12.5092 2.12764 12.3874 2.07688C12.2655 2.02613 12.1349 2 12.0029 2C11.8709 2 11.7402 2.02613 11.6184 2.07688C11.4966 2.12764 11.386 2.20201 11.2931 2.29571L2.29571 11.2931C2.20201 11.386 2.12764 11.4966 2.07688 11.6184C2.02613 11.7403 2 11.8709 2 12.0029C2 12.1349 2.02613 12.2655 2.07688 12.3874C2.12764 12.5092 2.20201 12.6198 2.29571 12.7127C2.38913 12.8053 2.49991 12.8787 2.62171 12.9284C2.74351 12.9782 2.87394 13.0034 3.00551 13.0026H4.00522V20.0006C4.00522 20.5309 4.21587 21.0394 4.59083 21.4144C4.9658 21.7893 5.47435 22 6.00463 22H18.0011C18.5314 22 19.04 21.7893 19.4149 21.4144C19.7899 21.0394 20.0006 20.5309 20.0006 20.0006V13.0026H21.0003C21.2654 13.0026 21.5197 12.8973 21.7072 12.7098C21.8947 12.5223 22 12.268 22 12.0029C22.0007 11.8713 21.9755 11.7409 21.9258 11.6191C21.876 11.4973 21.8027 11.3865 21.7101 11.2931L12.7127 2.29571ZM6.00463 20.0006V10.4134L12.0029 4.4151L18.0011 10.4134V20.0006H6.00463Z" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_2665_1691">
-                      <rect width="24" height="24" />
-                    </clipPath>
-                  </defs>
-                </svg>
-
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/root/library" activeClassName="active">
-                <svg className='svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 6C2 4.93913 2.42143 3.92172 3.17157 3.17157C3.92172 2.42143 4.93913 2 6 2H18C19.0609 2 20.0783 2.42143 20.8284 3.17157C21.5786 3.92172 22 4.93913 22 6V18C22 19.0609 21.5786 20.0783 20.8284 20.8284C20.0783 21.5786 19.0609 22 18 22H6C4.93913 22 3.92172 21.5786 3.17157 20.8284C2.42143 20.0783 2 19.0609 2 18V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                  <path d="M9 16.5002V8.78025C9.00001 8.55732 9.0745 8.34078 9.21166 8.16504C9.34881 7.98929 9.54075 7.86442 9.757 7.81025L15.757 6.31025C15.9044 6.27331 16.0584 6.27047 16.2071 6.30195C16.3558 6.33343 16.4954 6.3984 16.6152 6.49191C16.735 6.58543 16.832 6.70503 16.8987 6.84163C16.9653 6.97824 17 7.12824 17 7.28025V15.0002" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                  <path d="M9 11L17 9" stroke-width="2" />
-                  <path d="M7.5 18C8.32843 18 9 17.3284 9 16.5C9 15.6716 8.32843 15 7.5 15C6.67157 15 6 15.6716 6 16.5C6 17.3284 6.67157 18 7.5 18Z" stroke-width="2" fill="none" />
-                  <path d="M15.5 17C16.3284 17 17 16.3284 17 15.5C17 14.6716 16.3284 14 15.5 14C14.6716 14 14 14.6716 14 15.5C14 16.3284 14.6716 17 15.5 17Z" stroke-width="2" fill="none" />
-                </svg>
-
-                Library
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/root/playlist" activeClassName="active">
-                <svg className='svg' width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13 15.1189C13 16.8917 14.573 18.3337 16.507 18.3337C18.441 18.3337 20.014 16.8917 20.014 15.1189C20.014 14.9567 19.987 14.8008 19.961 14.645H20V5.50033H22V3.66699H19C18.7348 3.66699 18.4804 3.76357 18.2929 3.93548C18.1054 4.10739 18 4.34054 18 4.58366V12.2222C17.5344 12.0157 17.0243 11.9073 16.507 11.9051C15.5773 11.9058 14.6859 12.2446 14.0284 12.8471C13.3709 13.4497 13.0011 14.2667 13 15.1189ZM2 4.58366H16V6.41699H2V4.58366Z" />
-                  <path d="M2.5 8.75H15.5V9.58333H2.5V8.75ZM2.5 12.4167H10.5V13.25H2.5V12.4167ZM2.5 16.0833H10.5V16.9167H2.5V16.0833Z" />
-                </svg>
-
-                Playlist
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/root/empty" activeClassName="active">
-                <svg className='svg' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 4.5H16.5V6H3V4.5ZM3 9H16.5V10.5H3V9ZM3 13.5H12V15H3V13.5ZM15.75 13.5L21 17.25L15.75 21V13.5Z" />
-                </svg>
-
-                Create Playlist
-              </NavLink>
-            </li>
-          </div>
-          <div className='nav-space'>
-            <li>
-              <NavLink exact to="/root/empty" activeClassName="active">
-                <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1.5H21M1 9.5H6.5M1 17.5H6.5" stroke-width="2" stroke-linecap="round" />
-                  <path fill='none' d="M14.75 15C15.8772 15 16.9582 14.5522 17.7552 13.7552C18.5522 12.9582 19 11.8772 19 10.75C19 9.62283 18.5522 8.54183 17.7552 7.7448C16.9582 6.94777 15.8772 6.5 14.75 6.5C13.6228 6.5 12.5418 6.94777 11.7448 7.7448C10.9478 8.54183 10.5 9.62283 10.5 10.75C10.5 11.8772 10.9478 12.9582 11.7448 13.7552C12.5418 14.5522 13.6228 15 14.75 15V15Z" stroke-width="2" />
-                  <path d="M17.5 14L21 17.525" stroke-width="2" stroke-linecap="round" />
-                </svg>
-
-                Browse Categories
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/root/empty" activeClassName="active">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.5 3C14.76 3 13.09 3.81 12 5.09C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.42 2 8.5C2 12.28 5.4 15.36 10.55 20.04L12 21.35L13.45 20.03C18.6 15.36 22 12.28 22 8.5C22 5.42 19.58 3 16.5 3ZM12.1 18.55L12 18.65L11.9 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 5.99 11.07 7.36H12.94C13.46 5.99 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55Z" fill="white" />
-                </svg>
-
-
-                Favorite Songs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/root/profile" activeClassName="active">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C9.35831 2.03369 6.8343 3.09807 4.96618 4.96618C3.09807 6.8343 2.03369 9.35831 2 12C2.01235 13.5389 2.37972 15.0542 3.07351 16.4279C3.7673 17.8016 4.76879 18.9967 6 19.92V20H6.1C7.79318 21.2975 9.86685 22.0006 12 22.0006C14.1332 22.0006 16.2068 21.2975 17.9 20H18V19.92C19.2312 18.9967 20.2327 17.8016 20.9265 16.4279C21.6203 15.0542 21.9877 13.5389 22 12C21.9663 9.35831 20.9019 6.8343 19.0338 4.96618C17.1657 3.09807 14.6417 2.03369 12 2ZM8.07 18.93C8.21599 18.2614 8.58615 17.6629 9.11908 17.2336C9.65202 16.8044 10.3157 16.5702 11 16.57H13C13.6843 16.5702 14.348 16.8044 14.8809 17.2336C15.4138 17.6629 15.784 18.2614 15.93 18.93C14.7389 19.6308 13.382 20.0004 12 20.0004C10.618 20.0004 9.26113 19.6308 8.07 18.93ZM17.61 17.64C17.2296 16.7309 16.5891 15.9546 15.7689 15.4084C14.9487 14.8622 13.9854 14.5705 13 14.57H11C10.0146 14.5705 9.05127 14.8622 8.23108 15.4084C7.41088 15.9546 6.77037 16.7309 6.39 17.64C5.64066 16.903 5.0439 16.0255 4.63381 15.0578C4.22373 14.0901 4.00835 13.051 4 12C4.02594 9.88633 4.87712 7.86653 6.37183 6.37183C7.86653 4.87712 9.88633 4.02594 12 4C14.1137 4.02594 16.1335 4.87712 17.6282 6.37183C19.1229 7.86653 19.9741 9.88633 20 12C19.9916 13.051 19.7763 14.0901 19.3662 15.0578C18.9561 16.0255 18.3593 16.903 17.61 17.64Z" />
-                  <path d="M12.0001 6.00008C11.4714 5.98777 10.9458 6.08282 10.4549 6.27947C9.96403 6.47613 9.51815 6.77032 9.14424 7.14424C8.77032 7.51815 8.47613 7.96403 8.27947 8.4549C8.08282 8.94577 7.98777 9.47143 8.00008 10.0001C7.98777 10.5287 8.08282 11.0544 8.27947 11.5453C8.47613 12.0361 8.77032 12.482 9.14424 12.8559C9.51815 13.2298 9.96403 13.524 10.4549 13.7207C10.9458 13.9174 11.4714 14.0124 12.0001 14.0001C12.5287 14.0124 13.0544 13.9174 13.5453 13.7207C14.0361 13.524 14.482 13.2298 14.8559 12.8559C15.2298 12.482 15.524 12.0361 15.7207 11.5453C15.9174 11.0544 16.0124 10.5287 16.0001 10.0001C16.0124 9.47143 15.9174 8.94577 15.7207 8.4549C15.524 7.96403 15.2298 7.51815 14.8559 7.14424C14.482 6.77032 14.0361 6.47613 13.5453 6.27947C13.0544 6.08282 12.5287 5.98777 12.0001 6.00008ZM12.0001 12.0001C11.734 12.0129 11.4682 11.97 11.2198 11.8741C10.9713 11.7781 10.7456 11.6312 10.5573 11.4429C10.3689 11.2545 10.2221 11.0289 10.1261 10.7804C10.0301 10.5319 9.98722 10.2661 10.0001 10.0001C9.98722 9.73403 10.0301 9.46824 10.1261 9.21976C10.2221 8.97128 10.3689 8.74563 10.5573 8.55728C10.7456 8.36894 10.9713 8.22207 11.2198 8.12611C11.4682 8.03015 11.734 7.98722 12.0001 8.00008C12.2661 7.98722 12.5319 8.03015 12.7804 8.12611C13.0289 8.22207 13.2545 8.36894 13.4429 8.55728C13.6312 8.74563 13.7781 8.97128 13.8741 9.21976C13.97 9.46824 14.0129 9.73403 14.0001 10.0001C14.0129 10.2661 13.97 10.5319 13.8741 10.7804C13.7781 11.0289 13.6312 11.2545 13.4429 11.4429C13.2545 11.6312 13.0289 11.7781 12.7804 11.8741C12.5319 11.97 12.2661 12.0129 12.0001 12.0001Z" />
-                </svg>
-
-                User Profile
-              </NavLink>
-            </li>
-          </div>
-          <li>
-            <NavLink exact to="/root/empty" activeClassName="active">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_2665_1671)">
-                  <path fill='none' d="M9.75 1.5V4.5L8.25 5.25L6 3L3 6L5.25 8.25L4.5 9.75H1.5V14.25H4.5L5.25 15.75L3 18L6 21L8.25 18.75L9.75 19.5V22.5H14.25V19.5L15.75 18.75L18 21L21 18L18.75 15.75L19.5 14.25H22.5V9.75H19.5L18.75 8.25L21 6L18 3L15.75 5.25L14.25 4.5V1.5H9.75Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path fill='none' d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2665_1671">
-                    <rect width="24" height="24" />
-                  </clipPath>
-                </defs>
-              </svg>
-
-              Settings
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <div className="flex flex-col gap-10 h-full">
+        <div className="flex flex-col gap-4">
+          <NavLink exact to="home" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <BiHomeAlt2 />
+              <span>Home</span>
+            </div>
+          </NavLink>
+          <NavLink exact to="library" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <ImFileMusic />
+              <span>Library</span>
+            </div>
+          </NavLink>
+          <NavLink exact to="playlist" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <RiPlayListFill />
+              <span>Playlist</span>
+            </div>
+          </NavLink>
+          <NavLink exact to="empty" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <CgPlayList />
+              <span>Create Playlist</span>
+            </div>
+          </NavLink>
+        </div>
+        <div className="flex flex-col gap-4">
+          <NavLink exact to="categories" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <CgPlayListSearch />
+              <span>Browse categories</span>
+            </div>
+          </NavLink>
+          <NavLink exact to="empty" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <BsHeart />
+              <span>Favorite songs</span>
+            </div>
+          </NavLink>
+          <NavLink exact to="profile" activeClassName="active">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <BiUserCircle />
+              <span>User profile</span>
+            </div>
+          </NavLink>
+        </div>
+        <div>
+          <NavLink exact to="empty" activeClassName="empty">
+            <div className=" border-l-[8px] px-4 border-transparent w-full flex items-center gap-4">
+              <FiSettings />
+              <span>Settings</span>
+            </div>
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Sidebar;

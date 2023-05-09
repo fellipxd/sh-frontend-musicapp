@@ -7,11 +7,11 @@ const Songs = () => {
   const {setMusicPlaying} = useContext(AppContext)
 
   return (
-    <div className="h-[300px] border border-purple-800 rounded-lg p-4">
+    <div className="h-full border border-purple-800 rounded-lg p-4">
       {topPicks &&
         topPicks.map((topPick) => (
           <div className="mb-4">
-            <div className="flex justify-between items-end" onClick={() => setMusicPlaying(topPick)}>
+            <div className="flex justify-between items-end cursor-pointer" onClick={() => setMusicPlaying(topPick)}>
               <div className="flex gap-3">
                 <span>
                   <img

@@ -5,10 +5,12 @@ import AppContext from "../state/context";
 const Upload = ({ toggleUpload }) => {
   const {
     isOpen,
-    // errMessage,
-    // setErrMessage,
-    // successMessage,
-    // setSuccessMessage,
+    errMessage,
+    setErrMessage,
+    successMessage,
+    setSuccessMessage,
+    loading,
+    setLoading,
   } = useContext(AppContext);
 
   const [musicData, setMusicData] = useState({
@@ -19,19 +21,20 @@ const Upload = ({ toggleUpload }) => {
     genre: "",
     album: "",
     cover_picture: null,
-    release_date: ""
+    release_date: "",
   });
 
   const handleInputChange = (e) => {
-    const {name, value} = e.target
+    const { name, value } = e.target;
 
     setMusicData((prev) => ({
-      ...prev, [name]: value
-    }))
-  }
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleFileInputChange = (e) => {
-    const {name} = e.target
+    const { name } = e.target;
     const file = e.target.files[0];
 
     setMusicData((prev) => ({
@@ -42,19 +45,20 @@ const Upload = ({ toggleUpload }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const formData = new FormData()
+    const formData = new FormData();
 
-    formData.append("artist_name", musicData.artist_name)
-    formData.append("artist_label", musicData.artist_label)
-    formData.append("music", musicData.music)
-    formData.append("music_title", musicData.music_title)
-    formData.append("cover_picture", musicData.cover_picture)
-    formData.append("release_date", musicData.release_date)
-    formData.append("genre", musicData.genre)
-    formData.append("album", musicData.album)
-    
-    console.log(formData, formData.entries)
+    formData.append("artist_name", musicData.artist_name);
+    formData.append("artist_label", musicData.artist_label);
+    formData.append("music", musicData.music);
+    formData.append("music_title", musicData.music_title);
+    formData.append("cover_picture", musicData.cover_picture);
+    formData.append("release_date", musicData.release_date);
+    formData.append("genre", musicData.genre);
+    formData.append("album", musicData.album);
+
+    console.log(formData, formData.entries);
 
     try {
       const res = await fetch(
@@ -67,16 +71,39 @@ const Upload = ({ toggleUpload }) => {
 
       const { status, message } = await res.json();
 
-      if(status === "success") {
-        console.log(message)
-        toggleUpload()
+      if (status === "success") {
+        console.log(message);
+        setLoading(false);
+        setSuccessMessage(message);
+        setMusicData({
+          artist_name: "",
+          music: null,
+          music_title: "",
+          artist_label: "",
+          genre: "",
+          album: "",
+          cover_picture: null,
+          release_date: "",
+        })
+        setTimeout(() => {
+          setSuccessMessage("");
+          toggleUpload();
+        }, 2000);
       } else {
-        console.log(message)
+        console.log(message);
+        setErrMessage(message);
+        setTimeout(() => {
+          setLoading(false);
+          setErrMessage("");
+        }, 2000);
       }
-
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error);
+      setErrMessage(error);
+      setTimeout(() => {
+        setLoading(false);
+        setErrMessage("");
+      }, 2000);
     }
   };
 
@@ -175,19 +202,10 @@ const Upload = ({ toggleUpload }) => {
           widthBig="true"
           onClick={handleSubmit}
         >
-          SUBMIT
+          {loading ? "Loading..." : "SUBMIT"}
         </Button>
-        {/* <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            textTransform: "capitalize",
-            marginTop: "1rem",
-          }}
-        >
-          <span style={{ color: "red" }}>{errMessage}</span>
-          <span style={{ color: "green" }}>{successMessage}</span>
-        </div> */}
+        <div className="text-center text-red-700">{errMessage}</div>
+        <div className="text-center text-green-700">{successMessage}</div>
       </form>
     </div>
   );
