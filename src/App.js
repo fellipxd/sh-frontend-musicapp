@@ -18,6 +18,8 @@ import Landing from "./pages/Landing";
 import AppProvider from "./state/provider";
 import Library from "./pages/Library/Index";
 import EmptyPage from "./pages/empty";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import { musicLoader } from "./state/loader";
 
 function App() {
