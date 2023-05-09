@@ -2,7 +2,8 @@ import { useContext } from "react";
 import Card from "../components/cards/Index";
 import AppContext from "../state/context";
 import useSongs from "../components/useSongs";
-import Carousel from "react-elastic-carousel"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import { useNavigate } from "react-router";
 
 const Home = () => {
@@ -16,9 +17,8 @@ const Home = () => {
       <div className="flex flex-col gap-4 w-full text-white">
         <div className="flex flex-col gap-2">
           <p>Top Picks</p>
-          <div className="border border-purple-900 py-2 px-4">
+          <div className="border flex gap-8 border-purple-900 py-2 px-4">
             {isLoading && <div>Loading...</div>}
-            <Carousel>
             {topPicks?.map((topPick) => (
               <Card
                 onClick={() => {
@@ -30,7 +30,6 @@ const Home = () => {
                 spanText2={topPick.music_title}
               />
             ))}
-            </Carousel>
           </div>
         </div>
         <div className="flex flex-col gap-2">
